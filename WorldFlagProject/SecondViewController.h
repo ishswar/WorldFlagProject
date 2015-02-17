@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface SecondViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 
+- (IBAction)goHorizontal:(UIBarButtonItem *)sender;
+@property (strong, nonatomic) IBOutlet UIView *horizontalView;
+@property (strong, nonatomic) IBOutlet UILabel *horizontalCountryName;
+@property (strong, nonatomic) IBOutlet UIImageView *horizontalCountryFlagImage;
+
+- (IBAction)horizontalShowDetail:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UILabel *horizontalShowLable;
 @end
 
