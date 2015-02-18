@@ -78,13 +78,13 @@
      [[UIColor colorWithRed:0.459 green:0.82 blue:1 alpha:1] CGColor]];
     [[self.webView layer] setBorderWidth:1.75];
     
-    [[self.webView layer] setCornerRadius:10];
+    [[self.webView layer] setCornerRadius:5];
     [self.webView setClipsToBounds:YES];
     
     [[self.infoView layer] setBorderColor:
      [[UIColor colorWithRed:0.459 green:0.82 blue:1 alpha:1] CGColor]];
     [[self.infoView layer] setBorderWidth:1.75];
-    [[self.infoView layer] setCornerRadius:10];
+    [[self.infoView layer] setCornerRadius:5];
     
     self.aboutCountryLable.text = [NSString stringWithFormat:@"About %@",self.countryLocation];
 }

@@ -242,6 +242,7 @@
 		9B37A9B21A8E37CB00CFE9BA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B37A9B11A8E37CB00CFE9BA /* MapKit.framework */; };
 		9B84ACA11A92914100C477D0 /* AssetFilesUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B84ACA01A92914100C477D0 /* AssetFilesUtils.m */; };
 		9B84AE991A9304B300C477D0 /* CommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B84AE981A9304B300C477D0 /* CommonUtils.m */; };
+		9B84AE9C1A93AADB00C477D0 /* GameBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B84AE9B1A93AADB00C477D0 /* GameBoardViewController.m */; };
 		9BA75D441A90F6D500294DBE /* modelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA75D431A90F6D500294DBE /* modelObject.m */; };
 /* End PBXBuildFile section */
 
@@ -501,6 +502,8 @@
 		9B84ACA01A92914100C477D0 /* AssetFilesUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetFilesUtils.m; sourceTree = "<group>"; };
 		9B84AE971A9304B300C477D0 /* CommonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtils.h; sourceTree = "<group>"; };
 		9B84AE981A9304B300C477D0 /* CommonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtils.m; sourceTree = "<group>"; };
+		9B84AE9A1A93AADB00C477D0 /* GameBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBoardViewController.h; sourceTree = "<group>"; };
+		9B84AE9B1A93AADB00C477D0 /* GameBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameBoardViewController.m; sourceTree = "<group>"; };
 		9BA75D421A90F6D500294DBE /* modelObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modelObject.h; sourceTree = "<group>"; };
 		9BA75D431A90F6D500294DBE /* modelObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = modelObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -556,6 +559,8 @@
 				9B37A7CB1A8DDD1E00CFE9BA /* SecondViewController.m */,
 				9B37A9AE1A8E369600CFE9BA /* DetailViewController.h */,
 				9B37A9AF1A8E369600CFE9BA /* DetailViewController.m */,
+				9B84AE9A1A93AADB00C477D0 /* GameBoardViewController.h */,
+				9B84AE9B1A93AADB00C477D0 /* GameBoardViewController.m */,
 				9B37A7CD1A8DDD1E00CFE9BA /* Main.storyboard */,
 				9B37A7D01A8DDD1E00CFE9BA /* Images.xcassets */,
 				9B37A7D21A8DDD1E00CFE9BA /* LaunchScreen.xib */,
@@ -1173,6 +1178,7 @@
 				9B37A9B01A8E369600CFE9BA /* DetailViewController.m in Sources */,
 				9B84ACA11A92914100C477D0 /* AssetFilesUtils.m in Sources */,
 				9BA75D441A90F6D500294DBE /* modelObject.m in Sources */,
+				9B84AE9C1A93AADB00C477D0 /* GameBoardViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

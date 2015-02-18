@@ -10,6 +10,7 @@
 
 @interface FirstViewController : UIViewController
 
+- (IBAction)startGame:(UIButton *)sender;
 
 @end
 
