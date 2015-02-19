@@ -14,7 +14,7 @@
 +(NSArray*)getAllassetFiles
 {
     
-    NSString *documentsDirectory = [[NSBundle mainBundle] bundlePath];
+    NSString *documentsDirectory = [[NSBundle mainBundle] bundlePath ];
     NSError * error;
     NSArray * directoryContents =  [[NSFileManager defaultManager]
                           contentsOfDirectoryAtPath:documentsDirectory error:&error];
@@ -22,6 +22,16 @@
     NSArray *extensions = [NSArray arrayWithObjects:@"png", nil];
     
     directoryContents = [directoryContents filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"pathExtension IN %@", extensions]];
+                                  
+    NSPredicate *iconffiles = [NSPredicate predicateWithFormat:@"SELF contains 'icon_'"];
+    NSPredicate *noIconfiles = [NSCompoundPredicate notPredicateWithSubpredicate:iconffiles];
+    directoryContents = [directoryContents filteredArrayUsingPredicate:noIconfiles];
+    
+    NSPredicate *launchImage = [NSPredicate predicateWithFormat:@"SELF contains 'LaunchImage'"];
+    NSPredicate *nolaunchImage = [NSCompoundPredicate notPredicateWithSubpredicate:launchImage];
+    directoryContents = [directoryContents filteredArrayUsingPredicate:nolaunchImage];
+
+    
     
     return directoryContents;
     
@@ -51,6 +61,7 @@
     //return [[[input lastPathComponent] stringByDeletingPathExtension] stringByReplacingOccurrencesOfString:@"_" withString:@" "];
     
 }
+
 
 
 @end

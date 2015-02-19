@@ -100,19 +100,23 @@
 }
 */
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.scrollView setContentOffset:CGPointMake(0,0) animated:YES]; // Push scorll view to all the way to top
+    [self guiElementsintialization];
+    // Start loading Wiki data
+    [self getWikiData:self.countryLocation];
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self.scrollView setContentOffset:CGPointMake(0,0) animated:YES]; // Push scorll view to all the way to top
     
+    // If info window is open and user taps outside the window - we need to close info Window 
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(infoClose:)];
     [self.scrollView addGestureRecognizer:gestureRecognizer];
-
-
-    [self guiElementsintialization];
-    // Start loading Wiki data
-    [self getWikiData:self.countryLocation];
-    
     
     // Find a geo location of Country and show it on Apple map
     NSString *location =  self.countryLocation; //[NSString stringWithFormat:@",%@",self.countryLocation];
@@ -291,11 +295,23 @@
     self.webViewBackButton.hidden = YES;
     self.webViewForwardButton.hidden = YES;
     
-    // set background view as darken
-    [self.mainView setBackgroundColor:[[UIColor clearColor] colorWithAlphaComponent:0.5]];
+
     
     // Un hide the web view .
     self.infoView.hidden = NO;
+    self.infoView.alpha = 0.0;
+    [UIView animateWithDuration:.6 delay:0.0 options:UIViewAnimationCurveEaseOut animations:^{
+        self.infoView.alpha = 1.0;
+    } completion:^(BOOL finished) {
+        // set background view as darken
+        [self.mainView setBackgroundColor:[[UIColor grayColor] colorWithAlphaComponent:0.5]];
+        self.webView.hidden = YES;
+        self.insetImageView.hidden = YES;
+        self.mapView.hidden = YES;
+    }];
+    
+
+
     
 }
 
@@ -311,6 +327,9 @@
     if(!self.infoView.hidden){
         self.infoView.hidden = YES;
         [self.mainView setBackgroundColor:[[UIColor whiteColor] colorWithAlphaComponent:1]];
+        self.webView.hidden = NO;
+        self.insetImageView.hidden = NO;
+        self.mapView.hidden = NO;
     }
 }
 
