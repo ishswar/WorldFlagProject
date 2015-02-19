@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface modelObject : NSObject
+@interface wikiObject : NSObject
 
 @property (strong,nonatomic) NSString* name;
 @property (strong,nonatomic) NSString* objDescription;

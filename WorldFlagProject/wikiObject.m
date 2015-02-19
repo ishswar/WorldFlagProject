@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Pranay Shah. All rights reserved.
 //
 
-#import "modelObject.h"
+#import "wikiObject.h"
 
-@implementation modelObject
+@implementation wikiObject
 
 @end

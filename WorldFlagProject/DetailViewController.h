@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "modelObject.h"
+#import "wikiObject.h"
 
 @import CoreLocation;
 
 @interface DetailViewController : UIViewController <CLLocationManagerDelegate,MKMapViewDelegate,UITextFieldDelegate,UIScrollViewDelegate,UIWebViewDelegate>
 
 
-- (modelObject *)modelObjFromJSON:(NSData *)objectNotation error:(NSError **)error;
+- (wikiObject *)modelObjFromJSON:(NSData *)objectNotation error:(NSError **)error;
 
 @property (strong, nonatomic) IBOutlet UIView *mainView;
 

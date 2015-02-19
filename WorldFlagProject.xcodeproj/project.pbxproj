@@ -243,7 +243,7 @@
 		9B84ACA11A92914100C477D0 /* AssetFilesUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B84ACA01A92914100C477D0 /* AssetFilesUtils.m */; };
 		9B84AE991A9304B300C477D0 /* CommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B84AE981A9304B300C477D0 /* CommonUtils.m */; };
 		9B84AE9C1A93AADB00C477D0 /* GameBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B84AE9B1A93AADB00C477D0 /* GameBoardViewController.m */; };
-		9BA75D441A90F6D500294DBE /* modelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA75D431A90F6D500294DBE /* modelObject.m */; };
+		9BA75D441A90F6D500294DBE /* wikiObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA75D431A90F6D500294DBE /* wikiObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -504,8 +504,8 @@
 		9B84AE981A9304B300C477D0 /* CommonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtils.m; sourceTree = "<group>"; };
 		9B84AE9A1A93AADB00C477D0 /* GameBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBoardViewController.h; sourceTree = "<group>"; };
 		9B84AE9B1A93AADB00C477D0 /* GameBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameBoardViewController.m; sourceTree = "<group>"; };
-		9BA75D421A90F6D500294DBE /* modelObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modelObject.h; sourceTree = "<group>"; };
-		9BA75D431A90F6D500294DBE /* modelObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = modelObject.m; sourceTree = "<group>"; };
+		9BA75D421A90F6D500294DBE /* wikiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wikiObject.h; sourceTree = "<group>"; };
+		9BA75D431A90F6D500294DBE /* wikiObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wikiObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -840,8 +840,8 @@
 		9BA75D411A90F6B400294DBE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9BA75D421A90F6D500294DBE /* modelObject.h */,
-				9BA75D431A90F6D500294DBE /* modelObject.m */,
+				9BA75D421A90F6D500294DBE /* wikiObject.h */,
+				9BA75D431A90F6D500294DBE /* wikiObject.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1177,7 +1177,7 @@
 				9B37A7C31A8DDD1E00CFE9BA /* main.m in Sources */,
 				9B37A9B01A8E369600CFE9BA /* DetailViewController.m in Sources */,
 				9B84ACA11A92914100C477D0 /* AssetFilesUtils.m in Sources */,
-				9BA75D441A90F6D500294DBE /* modelObject.m in Sources */,
+				9BA75D441A90F6D500294DBE /* wikiObject.m in Sources */,
 				9B84AE9C1A93AADB00C477D0 /* GameBoardViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

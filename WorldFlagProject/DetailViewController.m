@@ -18,7 +18,7 @@
 @implementation DetailViewController {
 
     UIWebView* aWebView;
-    modelObject* modelObj;
+    wikiObject* modelObj;
 }
 
 - (void)viewDidLoad {
@@ -427,7 +427,7 @@
  ]
  
  */
--(modelObject *)modelObjFromJSON:(NSData *)objectNotation error:(NSError **)error
+-(wikiObject *)modelObjFromJSON:(NSData *)objectNotation error:(NSError **)error
 {
     NSError *localError = nil;
     NSArray *parsedObject = [NSJSONSerialization JSONObjectWithData:objectNotation options:NSJSONReadingMutableContainers error:&localError];
@@ -437,7 +437,7 @@
         return nil;
     }
     
-    modelObject *wikiObj = [[modelObject alloc]init];
+    wikiObject *wikiObj = [[wikiObject alloc]init];
     
     
     int i =0;
