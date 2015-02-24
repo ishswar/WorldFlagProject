@@ -255,9 +255,9 @@
         self.horizontalCountryName.text = countryName;
         
         self.horizontalCountryFlagImage.layer.masksToBounds = YES;
-        self.horizontalCountryFlagImage.layer.cornerRadius = 10.0;
-        self.horizontalCountryFlagImage.layer.borderWidth = 1.0;
-        self.horizontalCountryFlagImage.layer.borderColor = [[UIColor grayColor] CGColor];
+        self.horizontalCountryFlagImage.layer.cornerRadius = 5.0;
+        self.horizontalCountryFlagImage.layer.borderWidth = 0.5;
+        self.horizontalCountryFlagImage.layer.borderColor = [[UIColor clearColor] CGColor];
         
         self.navigationItem.leftBarButtonItem.title = @"List";
     }else

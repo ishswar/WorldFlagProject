@@ -7,12 +7,19 @@
 //
 
 #import "FirstViewController.h"
+#import "GameBoardViewController.h"
 
 @interface FirstViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation FirstViewController {
+    
+    // YES : Quize type [ Image and 4 text base choice ]
+    // NO : Quize type [ Text and 4 image base choice ]
+    BOOL flagtoText;
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,12 +38,28 @@
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
  // Get the new view controller using [segue destinationViewController].
  // Pass the selected object to the new view controller.
+     
+     if([segue.identifier isEqualToString:@"startGame"])
+     {
+         GameBoardViewController *gbvc = segue.destinationViewController;
+         gbvc.flagToText = flagtoText;
+     }
+     
  }
  
-
+// Start Quize with Image as Question
 - (IBAction)startGame:(UIButton *)sender {
     
-        [self performSegueWithIdentifier:@"startGame" sender:nil];//IndexPath as sender
+    flagtoText = YES; // YES : Quize type [ Image and 4 text base choice ]
+    [self performSegueWithIdentifier:@"startGame" sender:nil];//IndexPath as sender
+    
+    
+}
 
+// Start Quize with Text as Question
+- (IBAction)startGameTexttoFlag:(UIButton *)sender {
+    flagtoText = NO; // NO : Quize type [ Text and 4 image base choice ]
+    [self performSegueWithIdentifier:@"startGame" sender:nil];//IndexPath as sender
+    
 }
 @end

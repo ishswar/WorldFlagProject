@@ -18,7 +18,7 @@
 @implementation DetailViewController {
 
     UIWebView* aWebView;
-    wikiObject* modelObj;
+    wikiObject* wikiInfoObject;
 }
 
 - (void)viewDidLoad {
@@ -285,7 +285,7 @@
     self.infoWebView.autoresizesSubviews = YES;
     self.infoWebView.autoresizingMask=(UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
 
-    NSString *urlAddress =  modelObj.url; // go to full Wiki page
+    NSString *urlAddress =  wikiInfoObject.url; // go to full Wiki page
     
     NSURL *url = [NSURL URLWithString:urlAddress];
     
@@ -346,7 +346,7 @@
 // Open wiki link in safari
 - (IBAction)openInSafariPressed:(UIButton *)sender {
     
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:modelObj.url]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:wikiInfoObject.url]];
 }
 
 // Delegate methods for Webview to enable forward and backward buttons
@@ -399,9 +399,9 @@
  
             [self.webView loadHTMLString:[NSString stringWithFormat:@" error => %@ ", [error localizedDescription]] baseURL:nil];
         } else {
-            modelObj =[self modelObjFromJSON:data error:nil];
-            modelObj.objDescription = [NSString stringWithFormat:@"<p><i>%@</i></p>",modelObj.objDescription];
-            [self.webView loadHTMLString:modelObj.objDescription baseURL:nil];
+            wikiInfoObject =[self modelObjFromJSON:data error:nil];
+            wikiInfoObject.objDescription = [NSString stringWithFormat:@"<p><i>%@</i></p>",wikiInfoObject.objDescription];
+            [self.webView loadHTMLString:wikiInfoObject.objDescription baseURL:nil];
         }
     }];
 }

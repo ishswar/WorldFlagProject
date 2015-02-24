@@ -12,5 +12,7 @@
 
 - (IBAction)startGame:(UIButton *)sender;
 
+- (IBAction)startGameTexttoFlag:(UIButton *)sender;
+
 @end
 
