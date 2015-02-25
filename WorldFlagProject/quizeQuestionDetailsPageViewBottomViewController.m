@@ -32,8 +32,10 @@
         
         if(self.questiontoShow.arrayofWrrongAnswers.count == 0 && self.questiontoShow.answertime != nil)
             self.correctWrrongImage.image = [ UIImage imageNamed:@"icon_correct.png"];
-        else
+        else if(self.questiontoShow.arrayofWrrongAnswers.count > 0)
             self.correctWrrongImage.image = [ UIImage imageNamed:@"icon_incorrect.png"];
+        else
+            self.correctWrrongImage.image = [ UIImage imageNamed:@"icon_incomplete.png"];
         
         if(self.quizeType == TexttoFlag)
         {

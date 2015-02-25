@@ -114,7 +114,7 @@
        //detailtext = @"0 attempts";
         //cell.backgroundColor = [UIColor colorWithRed:0.73 green:0.96 blue:0.65 alpha:1.0];
     }
-    else if(q.answertime)
+    else if(q.arrayofWrrongAnswers.count > 0)
     {
         detailtext = [NSString stringWithFormat:@"%ld attempts",q.arrayofWrrongAnswers.count ];
        // cell.backgroundColor =  [UIColor colorWithRed:0.88 green:0.65 blue:0.60 alpha:1.0];
@@ -161,11 +161,12 @@
 //    questionDuration.backgroundColor = [UIColor clearColor];
     if(q.arrayofWrrongAnswers.count == 0 && q.answertime != nil)
         correctOrIncorrect.image = [ UIImage imageNamed:@"icon_correct.png"];
-    else
+    else if(q.arrayofWrrongAnswers.count > 0)
         correctOrIncorrect.image = [ UIImage imageNamed:@"icon_incorrect.png"];
-    
+    else
+        correctOrIncorrect.image = [ UIImage imageNamed:@"icon_incomplete.png"];
 
-        correctOrIncorrect.contentMode = UIViewContentModeScaleAspectFit;
+    correctOrIncorrect.contentMode = UIViewContentModeScaleAspectFit;
 
     
     //questionDuration.text = [self formattedStringForDuration:q.duration];

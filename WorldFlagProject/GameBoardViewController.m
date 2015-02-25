@@ -23,7 +23,7 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
 
 
 #define GAME_OVER_AT 0
-#define GAME_TIME ((int)25)
+#define GAME_TIME ((int)5)
 #define GAME_TIME_BUMP ((int)3)
 #define BUTTON_COLOR lightGrayColor
 #define BUTTON_BORDER_COLOR blackColor

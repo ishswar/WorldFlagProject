@@ -252,6 +252,7 @@
 		9B4C37B71A9CDFE30012C9FE /* icon_Repeat-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C37B61A9CDFE30012C9FE /* icon_Repeat-50.png */; };
 		9B4C37BA1A9CE7CD0012C9FE /* icon_Details-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C37B81A9CE7CD0012C9FE /* icon_Details-50.png */; };
 		9B4C37BB1A9CE7CD0012C9FE /* icon_Template-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C37B91A9CE7CD0012C9FE /* icon_Template-50.png */; };
+		9B4C38871A9D70040012C9FE /* icon_incomplete.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C38861A9D70040012C9FE /* icon_incomplete.png */; };
 		9B62E1EE1A99C2FD00452294 /* QuizeQuestionsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B62E1ED1A99C2FD00452294 /* QuizeQuestionsDetailViewController.m */; };
 		9B84ACA11A92914100C477D0 /* AssetFilesUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B84ACA01A92914100C477D0 /* AssetFilesUtils.m */; };
 		9B84AE991A9304B300C477D0 /* CommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B84AE981A9304B300C477D0 /* CommonUtils.m */; };
@@ -528,6 +529,7 @@
 		9B4C37B61A9CDFE30012C9FE /* icon_Repeat-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_Repeat-50.png"; sourceTree = "<group>"; };
 		9B4C37B81A9CE7CD0012C9FE /* icon_Details-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_Details-50.png"; sourceTree = "<group>"; };
 		9B4C37B91A9CE7CD0012C9FE /* icon_Template-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_Template-50.png"; sourceTree = "<group>"; };
+		9B4C38861A9D70040012C9FE /* icon_incomplete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_incomplete.png; sourceTree = "<group>"; };
 		9B62E1EC1A99C2FD00452294 /* QuizeQuestionsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizeQuestionsDetailViewController.h; sourceTree = "<group>"; };
 		9B62E1ED1A99C2FD00452294 /* QuizeQuestionsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizeQuestionsDetailViewController.m; sourceTree = "<group>"; };
 		9B84AC9F1A92914100C477D0 /* AssetFilesUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetFilesUtils.h; sourceTree = "<group>"; };
@@ -587,19 +589,13 @@
 		9B37A7BF1A8DDD1E00CFE9BA /* WorldFlagProject */ = {
 			isa = PBXGroup;
 			children = (
+				9B4C38881A9D72C10012C9FE /* quizeBoard */,
+				9B4C38851A9D69210012C9FE /* quizeStudyStuff */,
 				9BE681511A9AA60400EC47EB /* quizeReslutDetailViewStuff */,
 				9B84AE961A93049000C477D0 /* Utils */,
 				9BA75D411A90F6B400294DBE /* Model */,
 				9B37A7C41A8DDD1E00CFE9BA /* AppDelegate.h */,
 				9B37A7C51A8DDD1E00CFE9BA /* AppDelegate.m */,
-				9B37A7C71A8DDD1E00CFE9BA /* FirstViewController.h */,
-				9B37A7C81A8DDD1E00CFE9BA /* FirstViewController.m */,
-				9B37A7CA1A8DDD1E00CFE9BA /* SecondViewController.h */,
-				9B37A7CB1A8DDD1E00CFE9BA /* SecondViewController.m */,
-				9B37A9AE1A8E369600CFE9BA /* DetailViewController.h */,
-				9B37A9AF1A8E369600CFE9BA /* DetailViewController.m */,
-				9B84AE9A1A93AADB00C477D0 /* GameBoardViewController.h */,
-				9B84AE9B1A93AADB00C477D0 /* GameBoardViewController.m */,
 				9B37A7CD1A8DDD1E00CFE9BA /* Main.storyboard */,
 				9B37A7D01A8DDD1E00CFE9BA /* Images.xcassets */,
 				9B37A7D21A8DDD1E00CFE9BA /* LaunchScreen.xib */,
@@ -613,6 +609,7 @@
 		9B37A7C01A8DDD1E00CFE9BA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9B4C38861A9D70040012C9FE /* icon_incomplete.png */,
 				9B4C37B81A9CE7CD0012C9FE /* icon_Details-50.png */,
 				9B4C37B91A9CE7CD0012C9FE /* icon_Template-50.png */,
 				9B4C37B61A9CDFE30012C9FE /* icon_Repeat-50.png */,
@@ -877,6 +874,28 @@
 			path = flags_style4_large;
 			sourceTree = "<group>";
 		};
+		9B4C38851A9D69210012C9FE /* quizeStudyStuff */ = {
+			isa = PBXGroup;
+			children = (
+				9B37A7CA1A8DDD1E00CFE9BA /* SecondViewController.h */,
+				9B37A7CB1A8DDD1E00CFE9BA /* SecondViewController.m */,
+				9B37A9AE1A8E369600CFE9BA /* DetailViewController.h */,
+				9B37A9AF1A8E369600CFE9BA /* DetailViewController.m */,
+			);
+			name = quizeStudyStuff;
+			sourceTree = "<group>";
+		};
+		9B4C38881A9D72C10012C9FE /* quizeBoard */ = {
+			isa = PBXGroup;
+			children = (
+				9B37A7C71A8DDD1E00CFE9BA /* FirstViewController.h */,
+				9B37A7C81A8DDD1E00CFE9BA /* FirstViewController.m */,
+				9B84AE9A1A93AADB00C477D0 /* GameBoardViewController.h */,
+				9B84AE9B1A93AADB00C477D0 /* GameBoardViewController.m */,
+			);
+			name = quizeBoard;
+			sourceTree = "<group>";
+		};
 		9B84AE961A93049000C477D0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -1053,6 +1072,7 @@
 				9B1B4C5F1A984587000F9B4C /* Slovakia.png in Resources */,
 				9B1B4D091A984587000F9B4C /* Antigua_and_Barbuda.png in Resources */,
 				9B1B4CBA1A984587000F9B4C /* Hong_Kong.png in Resources */,
+				9B4C38871A9D70040012C9FE /* icon_incomplete.png in Resources */,
 				9B1B4C4C1A984587000F9B4C /* Thailand.png in Resources */,
 				9B1B4CD21A984587000F9B4C /* Estonia.png in Resources */,
 				9B4C37A91A9C46C40012C9FE /* icon_correct.png in Resources */,
