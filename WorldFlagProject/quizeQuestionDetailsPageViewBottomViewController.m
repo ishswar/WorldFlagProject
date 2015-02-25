@@ -8,6 +8,8 @@
 
 #import "quizeQuestionDetailsPageViewBottomViewController.h"
 #import "AssetFilesUtils.h"
+#import "CommonUtils.h"
+#import "CommonStuffHeader.h"
 
 
 @interface quizeQuestionDetailsPageViewBottomViewController ()
@@ -28,14 +30,14 @@
     if(self.questiontoShow != nil)
     {
         self.quizeQuestionNumber.text = [@(self.pageIndex +1) stringValue];
-        self.quizeQuestionDuration.text = [self formattedStringForDuration:self.questiontoShow.duration];
+        self.quizeQuestionDuration.text = [CommonUtils formattedStringForDuration:self.questiontoShow.duration];
         
         if(self.questiontoShow.arrayofWrrongAnswers.count == 0 && self.questiontoShow.answertime != nil)
-            self.correctWrrongImage.image = [ UIImage imageNamed:@"icon_correct.png"];
+            self.correctWrrongImage.image = [ UIImage imageNamed:ICON_CORRECT];
         else if(self.questiontoShow.arrayofWrrongAnswers.count > 0)
-            self.correctWrrongImage.image = [ UIImage imageNamed:@"icon_incorrect.png"];
+            self.correctWrrongImage.image = [ UIImage imageNamed:ICON_INCORRECT];
         else
-            self.correctWrrongImage.image = [ UIImage imageNamed:@"icon_incomplete.png"];
+            self.correctWrrongImage.image = [ UIImage imageNamed:ICON_INCOMPLETE];
         
         if(self.quizeType == TexttoFlag)
         {
@@ -161,10 +163,5 @@
 }
 */
 
-- (NSString*)formattedStringForDuration:(NSTimeInterval)duration
-{
-    NSInteger minutes = floor(duration/60);
-    NSInteger seconds = round(duration - minutes * 60);
-    return [NSString stringWithFormat:@"%ld:%02ld", (long)minutes, (long)seconds];
-}
+
 @end

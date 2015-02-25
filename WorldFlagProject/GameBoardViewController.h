@@ -34,6 +34,8 @@
 - (IBAction)goBackHome:(UIButton *)sender;
 - (IBAction)goToStudy:(UIButton *)sender;
 
+@property (strong, nonatomic) IBOutlet UIView *QuizeOverTimesUpView;
+
 // Game Board
 @property (strong, nonatomic) IBOutlet UIView *textQuestion;
 @property (strong, nonatomic) IBOutlet UILabel *textQuestionLabel;

@@ -6,10 +6,22 @@
 //  Copyright (c) 2015 Pranay Shah. All rights reserved.
 //
 
+/*
+ 
+ [Main] Class that will prent user's Quize as UI Table view but we have an abiliyt to morph into UI Page view as well
+ 
+ Only one input : quizeObject ( we work off of that object in this class )
+ 
+ */
+
 #import "QuizeQuestionsDetailViewController.h"
 #import "quizeQuestionDetailsPageView.h"
-
+#import "CommonUtils.h"
 #import "quizeQuestionDetailsPageView.h"
+#import "CommonStuffHeader.h"
+#import "AssetFilesUtils.h"
+
+#import "SizableImageCell.h"
 
 @interface QuizeQuestionsDetailViewController ()
 
@@ -17,7 +29,6 @@
 
 @implementation QuizeQuestionsDetailViewController {
     
-        NSArray *myColors;
     BOOL isPageViewShwon;
     NSInteger currentQuestion;
 }
@@ -26,45 +37,39 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    myColors = @[@"black",@"brown",@"orange",@"red",@"blue",@"green",@"purple",@"yellow"];
-    
+
+    // Main input - if this is nill we don't do anything 
     self.quize = (quizeObject*)self.input;
     
     if(self.quize)
     {
-        NSLog(@"Quize size is %ld",self.quize.arrayOfQuestions.count);
+        NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                   [UIFont fontWithName:FONT_STYLE size:18.0], NSFontAttributeName,
+                                                   [UIColor blackColor], NSForegroundColorAttributeName,
+                                                   nil] ;
+        // Add text to Bottom tool bar with Font style
         self.quizeSocreBottomToolBarToalQuestions.title = [NSString stringWithFormat:@"Score : %@",[self.quize.score stringValue]];
-        [self.quizeSocreBottomToolBarToalQuestions setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                            [UIFont fontWithName:@"Chalkboard SE" size:18.0], NSFontAttributeName,
-                                            [UIColor blackColor], NSForegroundColorAttributeName,
-                                            nil] 
+        [self.quizeSocreBottomToolBarToalQuestions setTitleTextAttributes:navbarTitleTextAttributes
                                   forState:UIControlStateNormal];
-        self.quizeScoreBottomBarScore.title = [NSString stringWithFormat:@"Total time :%@",[self formattedStringForDuration:self.quize.quizeDuration]];
-        [self.quizeScoreBottomBarScore setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                                           [UIFont fontWithName:@"Chalkboard SE" size:18.0], NSFontAttributeName,
-                                                                           [UIColor blackColor], NSForegroundColorAttributeName,
-                                                                           nil]
+        self.quizeScoreBottomBarScore.title = [NSString stringWithFormat:@"Total time :%@",[CommonUtils formattedStringForDuration:self.quize.quizeDuration]];
+        [self.quizeScoreBottomBarScore setTitleTextAttributes:navbarTitleTextAttributes
                                                                  forState:UIControlStateNormal];
+        
+        // Set nav title to Quize number
+        self.navigationBar.topItem.title = [NSString stringWithFormat:@"Quize #:%@",self.quize.quizeNmuber];
+        
+        
+        [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
+
+    }else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No data" message:@"Input quize object is empty ..." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
     }
     
-//  //  UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style: UIBarButtonItemStyleBordered target:self action:@selector(Back)];
-//    
-//   // UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
-//                 //                                                   style:UIBarButtonItemStyleDone target:nil action:nil];
-//    UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:@"Title"];
-//  
-//  //  item.hidesBackButton = YES;
-//   // item.backBarButtonItem = backButton;
-//    
-//   UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(Back)];
-//      item.leftBarButtonItem = backButton;
-//    [self.navbar pushNavigationItem:item animated:NO];
-    
-   // self.navigationBar.topItem.prompt = [NSString stringWithFormat:@"Score : %@",self.quize.score];
-    //self.navigationItem.prompt = [NSString stringWithFormat:@"Score : %@",self.quize.score];
-    
-    self.navigationBar.topItem.title = [NSString stringWithFormat:@"Quize #:%@",self.quize.quizeNmuber];
-    
+
+    // delegate from quizeQuestionDetailsPageView - if user slides pages in Page view we want to also select same row in UI Table view in background
+    // so when user comes back to UI Table view same row is selected and highlighted for them
     self.qqdpv.delegate = self;
     
     
@@ -95,107 +100,119 @@
     
 }
 
-
+// How many rows in this UI Table view == Number of questions in Quize
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.quize.arrayOfQuestions.count;
 }
+
+// Get each Cell [formated using data from each quesiton from Quize ]
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   // UILabel* questionDuration = nil;
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell"];
+    // UILabel* questionDuration = nil;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"questionCell"];
     
+    
+    
+    // Current Question we are working on
     quizeQuestion *q = self.quize.arrayOfQuestions[indexPath.row];
     NSString *LABLEText = [ NSString stringWithFormat:@"%@",q.question];
-    cell.textLabel.text = LABLEText;
+   cell.textLabel.text = LABLEText;
+    
+
     
     NSString *detailtext = [[NSString alloc] init];
+    
+    UIImageView* correctOrIncorrect = (UIImageView*)[cell.contentView viewWithTag:89];
+    
+    
+    if(correctOrIncorrect == nil)
+    {
+        correctOrIncorrect = [[UIImageView alloc] initWithFrame: CGRectMake( cell.frame.size.width-105, cell.frame.size.height/2-10, 35, 15 )];
+    }
+    
+    
+    
+    
     if(q.correctOnfirstAtempt){
-       //detailtext = @"0 attempts";
+        //detailtext = @"0 attempts";
         //cell.backgroundColor = [UIColor colorWithRed:0.73 green:0.96 blue:0.65 alpha:1.0];
+        correctOrIncorrect.image = [ UIImage imageNamed:ICON_CORRECT];
     }
     else if(q.arrayofWrrongAnswers.count > 0)
     {
         detailtext = [NSString stringWithFormat:@"%ld attempts",q.arrayofWrrongAnswers.count ];
-       // cell.backgroundColor =  [UIColor colorWithRed:0.88 green:0.65 blue:0.60 alpha:1.0];
+        correctOrIncorrect.image = [ UIImage imageNamed:ICON_INCORRECT];
+        // cell.backgroundColor =  [UIColor colorWithRed:0.88 green:0.65 blue:0.60 alpha:1.0];
     }
     else
     {
         detailtext = [NSString stringWithFormat:@"incomplete" ];
         //cell.backgroundColor =  [UIColor colorWithRed:0.95 green:0.27 blue:0.27 alpha:1.0];
+        correctOrIncorrect.image = [ UIImage imageNamed:ICON_INCOMPLETE];
+        
+        
     }
-   cell.detailTextLabel.text = detailtext;
+    cell.detailTextLabel.text = detailtext;
     
-    //UILabel *scorelable = (UILabel *)[cell viewWithTag:13];
-    //scorelable.text = [self formattedStringForDuration:q.duration];
+    correctOrIncorrect.contentMode = UIViewContentModeScaleAspectFit;
+    correctOrIncorrect.tag = 89;
+    [cell.contentView addSubview:correctOrIncorrect];
+    
+//    UIImageView* countryImg = (UIImageView*)[cell.contentView viewWithTag:79];
+//    
+//    
+//    if(countryImg == nil)
+//    {
+//        countryImg = [[UIImageView alloc] initWithFrame: CGRectMake( 0, cell.frame.size.height/2-10, 35, 15 )];
+//    }
+//    NSString *questionImage = [AssetFilesUtils CountryNametoFileName:q.question];
+//    countryImg.image = [UIImage imageNamed:questionImage];
+//    countryImg.contentMode = UIViewContentModeScaleAspectFit;
+//    countryImg.tag = 79;
+//    [cell.contentView addSubview:countryImg];
     
     
+
     
+    // Set question duraiton ( how long it took to answer this Question )- on fart right hand side of cell 
     UILabel* questionDuration = (UILabel*)[cell.contentView viewWithTag:99];
     
     if(questionDuration == nil)
     {
-         questionDuration = [[UILabel alloc] initWithFrame: CGRectMake( cell.frame.size.width-120, 0.0, 80, 44.0 )];
+        questionDuration = [[UILabel alloc] initWithFrame: CGRectMake( cell.frame.size.width-120, 0.0, 80, 44.0 )];
     }
     
     questionDuration.font = [UIFont systemFontOfSize: 11];
     questionDuration.textAlignment = NSTextAlignmentRight;
-    questionDuration.textColor = [UIColor blueColor];
+    questionDuration.textColor = [UIColor FONT_COLOR_FOR_DURATION];
     questionDuration.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight;
-    questionDuration.backgroundColor = [UIColor clearColor];
-    questionDuration.text = [self formattedStringForDuration:q.duration];
-    questionDuration.tag = 99;
+    questionDuration.backgroundColor = [UIColor BACKGROUND_COLOR_FOR_DURATION];
+    questionDuration.text = [CommonUtils formattedStringForDuration:q.duration]; // mm:ss minutes:seconds
+    questionDuration.tag = 99; // so we can pullout when we dequeueReusableCellWithIdentifier ( re-use)
     [cell.contentView addSubview:questionDuration];
     
-    UIImageView* correctOrIncorrect = (UIImageView*)[cell.contentView viewWithTag:89];
     
-    if(correctOrIncorrect == nil)
-    {
-        correctOrIncorrect = [[UIImageView alloc] initWithFrame: CGRectMake( cell.frame.size.width-65, cell.frame.size.height/2-10, 35, 15 )];
-    }
     
-//    questionDuration.font = [UIFont systemFontOfSize: 11];
-//    questionDuration.textAlignment = NSTextAlignmentRight;
-//    questionDuration.textColor = [UIColor blueColor];
-//    questionDuration.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight;
-//    questionDuration.backgroundColor = [UIColor clearColor];
-    if(q.arrayofWrrongAnswers.count == 0 && q.answertime != nil)
-        correctOrIncorrect.image = [ UIImage imageNamed:@"icon_correct.png"];
-    else if(q.arrayofWrrongAnswers.count > 0)
-        correctOrIncorrect.image = [ UIImage imageNamed:@"icon_incorrect.png"];
-    else
-        correctOrIncorrect.image = [ UIImage imageNamed:@"icon_incomplete.png"];
-
-    correctOrIncorrect.contentMode = UIViewContentModeScaleAspectFit;
-
     
-    //questionDuration.text = [self formattedStringForDuration:q.duration];
-    correctOrIncorrect.tag = 89;
-    [cell.contentView addSubview:correctOrIncorrect];
-
-    
-//    if(indexPath.row==currentQuestion){
-//        [cell.contentView.layer setBorderColor:[UIColor yellowColor].CGColor];
-//        [cell.contentView.layer setBorderWidth:2.0f];
-//    }else {
-//        [cell.contentView.layer setBorderColor:[UIColor clearColor].CGColor];
-//        [cell.contentView.layer setBorderWidth:2.0f];
-//    }
     return cell;
     
 }
 
 - (IBAction)goBack:(UIBarButtonItem *)sender {
     
-    if(!self.quizeUITableView.hidden){
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-    }
-    else
-    {
-       [self showPageView:nil ];
-    }
+//    if(!self.quizeUITableView.hidden){
+//    [self dismissViewControllerAnimated:YES completion:^{
+//        
+//    }];
+//    }
+//    else
+//    {
+//       [self showPageView:nil ];
+//    }
+    
+    [self dismissViewControllerAnimated:YES completion:^{}];
+
 }
 
 -(void)updateCurrentPageIndex:(NSInteger)index
@@ -289,10 +306,5 @@
     
 }
 
-- (NSString*)formattedStringForDuration:(NSTimeInterval)duration
-{
-    NSInteger minutes = floor(duration/60);
-    NSInteger seconds = round(duration - minutes * 60);
-    return [NSString stringWithFormat:@"%ld:%02ld", (long)minutes, (long)seconds];
-}
+
 @end

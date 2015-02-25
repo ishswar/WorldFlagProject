@@ -18,6 +18,7 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
 //################################################################
 #import "GameBoardViewController.h"
 #import "AssetFilesUtils.h"
+#import "CommonUtils.h"
 
 #import "QuizeQuestionsDetailViewController.h"
 
@@ -88,7 +89,7 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-
+    
     
     // secret gestrue that will enable hint
     UISwipeGestureRecognizer *swipeForHint = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showHintLable:)];
@@ -120,14 +121,12 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
     // if game status id defined != nil that means we need to show Reslut else we start game
     if(self.gameStatus)
     {
-       // self.ResultLable.text = [@(self.score) stringValue];
+        self.QuizeOverTimesUpView.hidden = NO;
+        // self.ResultLable.text = [@(self.score) stringValue];
         [self showReslutWithCounter];
         [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
         
-        if(self.quize)
-        {
-            NSLog(@"Questions in Quize %ld",self.quize.arrayOfQuestions.count);
-        }
+
         
     }
     else if(self.score == 0 ) // if not we start the game
@@ -135,31 +134,52 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
         // Read the directory and get all the file names as Questions
         directoryContents =  [[AssetFilesUtils getAllassetFiles] mutableCopy];
         
-      //  [self resetAllButtons];
+        if(directoryContents.count > 0)
+        {
+            
+            //  [self resetAllButtons];
+            
+            // Get first question and prepare the Quize view
+            [self doNextMove];
+            // Start the Game ( mainly the counter )
+            
+            
+            NSUserDefaults *userdef = [NSUserDefaults standardUserDefaults];
+            
+            NSInteger timer = [userdef integerForKey:@"timer"];
+            NSLog(@"timer value is %lu",(long)timer);
+            if(timer == 0){
+                timer = GAME_TIME;
+                [CommonUtils setGameTimeInUserDef:timer];
+            }
+            
+            [self startGame:[NSNumber numberWithInteger:timer] startScore:[NSNumber numberWithInt:0]];
+            
+            self.score = 0; // initalize game with this score - e.g 0 ?
+            self.currentScore.text = [@(self.score) stringValue];
+            
+            /*
+             At the end of game self.score == self.Correctimages.count
+             */
+            
+            // Correct Images ( in other word - answers that user guessed it on first try )
+            // we use this images in Reslut view
+            self.CorrectImages = [[NSMutableArray alloc] init];
+            
+            // Init the Quize object for recording purpose
+            [self initalizeQuizeObject];
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No data" message:@"No images found to start Game/Quize" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            self.textQuestionLabel.text =@"No data";
+        }
         
-        // Get first question and prepare the Quize view
-        [self doNextMove];
-        // Start the Game ( mainly the counter )
-        [self startGame:[NSNumber numberWithInt:GAME_TIME] startScore:[NSNumber numberWithInt:0]];
         
-        self.score = 0; // initalize game with this score - e.g 0 ?
-        self.currentScore.text = [@(self.score) stringValue];
         
-        /*
-         At the end of game self.score == self.Correctimages.count
-         */
-        
-        // Correct Images ( in other word - answers that user guessed it on first try )
-        // we use this images in Reslut view
-        self.CorrectImages = [[NSMutableArray alloc] init];
-        
-        // Init the Quize object for recording purpose
-        [self initalizeQuizeObject];
-        
-
-
     }
-
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -466,7 +486,7 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
         // self.flagToText == NO : Quize type [ Text and 4 image base choice ]
         if(self.flagToText){
             
-            
+            self.textQuestionLabel.hidden = YES;
             self.questionImage.image = [UIImage imageNamed:directoryContents[[temImgId[[temImg_Id[0] intValue]] intValue] ]];
             
             [self.anser1Button1 setTitle:option1 forState:UIControlStateNormal];

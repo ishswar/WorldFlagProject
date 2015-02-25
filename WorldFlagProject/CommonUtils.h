@@ -12,5 +12,7 @@
 @interface CommonUtils : NSObject
 
 + (UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize;
++(NSString*)formattedStringForDuration:(NSTimeInterval)duration;
++(void)setGameTimeInUserDef:(NSInteger)intimer;
 
 @end

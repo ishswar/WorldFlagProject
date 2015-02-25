@@ -8,6 +8,7 @@
 
 #import "quizeQuestionDetailsPageView.h"
 #import "quizeQuestionDetailsPageViewBottomViewController.h"
+#import "CommonUtils.h"
 
 @interface quizeQuestionDetailsPageView ()
 
@@ -67,7 +68,7 @@
         
         self.quizeStartTimeAaboutQuizeLable.text = [self formateDate:self.quize.startedOn];
         self.quizeEndTimeAaboutQuizeLable.text = [self formateDate:self.quize.stopedOn];
-        self.quizeDurationAaboutQuizeLable.text = [self formattedStringForDuration:self.quize.quizeDuration];//[NSString stringWithFormat:@"%f sec",self.quize.quizeDuration];
+        self.quizeDurationAaboutQuizeLable.text = [CommonUtils formattedStringForDuration:self.quize.quizeDuration];//[NSString stringWithFormat:@"%f sec",self.quize.quizeDuration];
         self.quizeTotalQuestionsAaboutQuizeLable.text = [@(self.quize.arrayOfQuestions.count) stringValue];
         self.quizeScoreAboutQuizeLable.text = self.quize.score.stringValue;
         
@@ -213,11 +214,6 @@
     
 }
 
-- (NSString*)formattedStringForDuration:(NSTimeInterval)duration
-{
-    NSInteger minutes = floor(duration/60);
-    NSInteger seconds = round(duration - minutes * 60);
-    return [NSString stringWithFormat:@"%ld:%02ld", (long)minutes, (long)seconds];
-}
+
 
 @end

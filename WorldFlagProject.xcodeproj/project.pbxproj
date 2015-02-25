@@ -253,6 +253,10 @@
 		9B4C37BA1A9CE7CD0012C9FE /* icon_Details-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C37B81A9CE7CD0012C9FE /* icon_Details-50.png */; };
 		9B4C37BB1A9CE7CD0012C9FE /* icon_Template-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C37B91A9CE7CD0012C9FE /* icon_Template-50.png */; };
 		9B4C38871A9D70040012C9FE /* icon_incomplete.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C38861A9D70040012C9FE /* icon_incomplete.png */; };
+		9B4C39EF1A9E42150012C9FE /* SizableImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4C39EE1A9E42150012C9FE /* SizableImageCell.m */; };
+		9B4C39F31A9E5ABA0012C9FE /* settingsAndAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4C39F21A9E5ABA0012C9FE /* settingsAndAboutViewController.m */; };
+		9B4C39F51A9E69A20012C9FE /* icon_Settings-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C39F41A9E69A20012C9FE /* icon_Settings-50.png */; };
+		9B4C39F71A9E712B0012C9FE /* icon_Time-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C39F61A9E712B0012C9FE /* icon_Time-50.png */; };
 		9B62E1EE1A99C2FD00452294 /* QuizeQuestionsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B62E1ED1A99C2FD00452294 /* QuizeQuestionsDetailViewController.m */; };
 		9B84ACA11A92914100C477D0 /* AssetFilesUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B84ACA01A92914100C477D0 /* AssetFilesUtils.m */; };
 		9B84AE991A9304B300C477D0 /* CommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B84AE981A9304B300C477D0 /* CommonUtils.m */; };
@@ -530,6 +534,13 @@
 		9B4C37B81A9CE7CD0012C9FE /* icon_Details-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_Details-50.png"; sourceTree = "<group>"; };
 		9B4C37B91A9CE7CD0012C9FE /* icon_Template-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_Template-50.png"; sourceTree = "<group>"; };
 		9B4C38861A9D70040012C9FE /* icon_incomplete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_incomplete.png; sourceTree = "<group>"; };
+		9B4C39EC1A9E1CE60012C9FE /* CommonStuffHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonStuffHeader.h; sourceTree = "<group>"; };
+		9B4C39ED1A9E42150012C9FE /* SizableImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SizableImageCell.h; sourceTree = "<group>"; };
+		9B4C39EE1A9E42150012C9FE /* SizableImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SizableImageCell.m; sourceTree = "<group>"; };
+		9B4C39F11A9E5ABA0012C9FE /* settingsAndAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingsAndAboutViewController.h; sourceTree = "<group>"; };
+		9B4C39F21A9E5ABA0012C9FE /* settingsAndAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingsAndAboutViewController.m; sourceTree = "<group>"; };
+		9B4C39F41A9E69A20012C9FE /* icon_Settings-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_Settings-50.png"; sourceTree = "<group>"; };
+		9B4C39F61A9E712B0012C9FE /* icon_Time-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_Time-50.png"; sourceTree = "<group>"; };
 		9B62E1EC1A99C2FD00452294 /* QuizeQuestionsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizeQuestionsDetailViewController.h; sourceTree = "<group>"; };
 		9B62E1ED1A99C2FD00452294 /* QuizeQuestionsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizeQuestionsDetailViewController.m; sourceTree = "<group>"; };
 		9B84AC9F1A92914100C477D0 /* AssetFilesUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetFilesUtils.h; sourceTree = "<group>"; };
@@ -589,6 +600,7 @@
 		9B37A7BF1A8DDD1E00CFE9BA /* WorldFlagProject */ = {
 			isa = PBXGroup;
 			children = (
+				9B4C39F01A9E5A8C0012C9FE /* SettingsAndAbout */,
 				9B4C38881A9D72C10012C9FE /* quizeBoard */,
 				9B4C38851A9D69210012C9FE /* quizeStudyStuff */,
 				9BE681511A9AA60400EC47EB /* quizeReslutDetailViewStuff */,
@@ -609,6 +621,8 @@
 		9B37A7C01A8DDD1E00CFE9BA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9B4C39F61A9E712B0012C9FE /* icon_Time-50.png */,
+				9B4C39F41A9E69A20012C9FE /* icon_Settings-50.png */,
 				9B4C38861A9D70040012C9FE /* icon_incomplete.png */,
 				9B4C37B81A9CE7CD0012C9FE /* icon_Details-50.png */,
 				9B4C37B91A9CE7CD0012C9FE /* icon_Template-50.png */,
@@ -896,6 +910,15 @@
 			name = quizeBoard;
 			sourceTree = "<group>";
 		};
+		9B4C39F01A9E5A8C0012C9FE /* SettingsAndAbout */ = {
+			isa = PBXGroup;
+			children = (
+				9B4C39F11A9E5ABA0012C9FE /* settingsAndAboutViewController.h */,
+				9B4C39F21A9E5ABA0012C9FE /* settingsAndAboutViewController.m */,
+			);
+			name = SettingsAndAbout;
+			sourceTree = "<group>";
+		};
 		9B84AE961A93049000C477D0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -903,6 +926,7 @@
 				9B84ACA01A92914100C477D0 /* AssetFilesUtils.m */,
 				9B84AE971A9304B300C477D0 /* CommonUtils.h */,
 				9B84AE981A9304B300C477D0 /* CommonUtils.m */,
+				9B4C39EC1A9E1CE60012C9FE /* CommonStuffHeader.h */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -929,6 +953,8 @@
 				9BE6814F1A9AA09600EC47EB /* quizeQuestionDetailsPageView.m */,
 				9BE681521A9AA64800EC47EB /* quizeQuestionDetailsPageViewBottomViewController.h */,
 				9BE681531A9AA64800EC47EB /* quizeQuestionDetailsPageViewBottomViewController.m */,
+				9B4C39ED1A9E42150012C9FE /* SizableImageCell.h */,
+				9B4C39EE1A9E42150012C9FE /* SizableImageCell.m */,
 			);
 			name = quizeReslutDetailViewStuff;
 			sourceTree = "<group>";
@@ -942,6 +968,7 @@
 			buildPhases = (
 				9B37A7B91A8DDD1E00CFE9BA /* Sources */,
 				9B37A7BA1A8DDD1E00CFE9BA /* Frameworks */,
+				9B4C39F81A9E791E0012C9FE /* ShellScript */,
 				9B37A7BB1A8DDD1E00CFE9BA /* Resources */,
 			);
 			buildRules = (
@@ -1016,6 +1043,7 @@
 			files = (
 				9B1B4C491A984587000F9B4C /* Togo.png in Resources */,
 				9B1B4CFB1A984587000F9B4C /* Benin.png in Resources */,
+				9B4C39F51A9E69A20012C9FE /* icon_Settings-50.png in Resources */,
 				9B1B4CA91A984587000F9B4C /* Kyrgyzstan.png in Resources */,
 				9B1B4C321A984587000F9B4C /* Zimbabwe.png in Resources */,
 				9B1B4C4F1A984587000F9B4C /* Taiwan.png in Resources */,
@@ -1162,6 +1190,7 @@
 				9B1B4C5A1A984587000F9B4C /* South_Georgia.png in Resources */,
 				9B1B4CEC1A984587000F9B4C /* Cape_Verde.png in Resources */,
 				9B1B4D021A984587000F9B4C /* Bahamas.png in Resources */,
+				9B4C39F71A9E712B0012C9FE /* icon_Time-50.png in Resources */,
 				9B1B4C741A984587000F9B4C /* Poland.png in Resources */,
 				9B1B4C5B1A984587000F9B4C /* South_Africa.png in Resources */,
 				9B1B4C991A984587000F9B4C /* Mali.png in Resources */,
@@ -1263,6 +1292,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9B4C39F81A9E791E0012C9FE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9B37A7B91A8DDD1E00CFE9BA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1278,11 +1323,13 @@
 				9BE6814D1A99D40A00EC47EB /* TableViewController.m in Sources */,
 				9B1B472C1A97FC7B000F9B4C /* quizeQuestion.m in Sources */,
 				9B84ACA11A92914100C477D0 /* AssetFilesUtils.m in Sources */,
+				9B4C39EF1A9E42150012C9FE /* SizableImageCell.m in Sources */,
 				9BE681541A9AA64800EC47EB /* quizeQuestionDetailsPageViewBottomViewController.m in Sources */,
 				9BA75D441A90F6D500294DBE /* wikiObject.m in Sources */,
 				9B62E1EE1A99C2FD00452294 /* QuizeQuestionsDetailViewController.m in Sources */,
 				9B84AE9C1A93AADB00C477D0 /* GameBoardViewController.m in Sources */,
 				9BE681501A9AA09600EC47EB /* quizeQuestionDetailsPageView.m in Sources */,
+				9B4C39F31A9E5ABA0012C9FE /* settingsAndAboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

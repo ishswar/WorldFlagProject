@@ -21,4 +21,20 @@
     return newImage;
 }
 
+// healper method - take NSTime interval and return minutes and string representation of it
++(NSString*)formattedStringForDuration:(NSTimeInterval)duration
+{
+    NSInteger minutes = floor(duration/60);
+    NSInteger seconds = round(duration - minutes * 60);
+    return [NSString stringWithFormat:@"%ld:%02ld", (long)minutes, (long)seconds];
+}
+
++(void)setGameTimeInUserDef:(NSInteger)intimer
+{
+    NSUserDefaults *userdef = [NSUserDefaults standardUserDefaults];
+    
+    [userdef setInteger:intimer forKey:@"timer"];
+    
+    
+}
 @end

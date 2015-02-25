@@ -118,10 +118,10 @@
      
      NSString* celltext = [AssetFilesUtils formatCountryName:directorymutableContents[indexPath.row]] ;
      cell.textLabel.text = celltext;
-     cell.detailTextLabel.text = [@(indexPath.row) stringValue];
+     //cell.detailTextLabel.text = [@(indexPath.row) stringValue];
      
      UIImage *image = [UIImage imageNamed:[AssetFilesUtils CountryNametoFileName:celltext]];
-     cell.imageView.image = [CommonUtils imageWithImage:image scaledToSize:CGSizeMake(65, 45)];
+     cell.imageView.image = [CommonUtils imageWithImage:image scaledToSize:CGSizeMake(65, 40)];
 
      return cell;
  }
