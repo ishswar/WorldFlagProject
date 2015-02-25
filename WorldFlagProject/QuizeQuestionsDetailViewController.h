@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "quizeQuestion.h"
 #import "quizeObject.h"
+#import "quizeQuestionDetailsPageView.h"
 
-@interface QuizeQuestionsDetailViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
+@interface QuizeQuestionsDetailViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,quizeQuestionDetailsPageViewdelegate>
 
 @property (strong,nonatomic) NSObject * input;
 @property (strong,nonatomic) quizeObject * quize;
+
+@property (weak,nonatomic) quizeQuestionDetailsPageView* qqdpv;
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *quizeSocreBottomToolBarToalQuestions;
 

@@ -28,6 +28,11 @@
 - (IBAction)reStart:(UIButton *)sender;
 - (IBAction)goHome:(UIButton *)sender;
 
+- (IBAction)reStartQuize:(UIButton *)sender;
+- (IBAction)showDetails:(UIButton *)sender;
+
+- (IBAction)goBackHome:(UIButton *)sender;
+- (IBAction)goToStudy:(UIButton *)sender;
 
 // Game Board
 @property (strong, nonatomic) IBOutlet UIView *textQuestion;

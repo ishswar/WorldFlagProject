@@ -32,6 +32,7 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *quizeQuestionDuration;
 
+@property (strong, nonatomic) IBOutlet UIImageView *correctWrrongImage;
 
 
 @end

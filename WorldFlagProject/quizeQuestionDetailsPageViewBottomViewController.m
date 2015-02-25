@@ -27,14 +27,20 @@
     NSLog(@"Quize type %d - %d - %d : ",self.quizeType ,TexttoFlag, FlagtoText);
     if(self.questiontoShow != nil)
     {
-        self.quizeQuestionNumber.text = [@(self.pageIndex) stringValue];
+        self.quizeQuestionNumber.text = [@(self.pageIndex +1) stringValue];
         self.quizeQuestionDuration.text = [self formattedStringForDuration:self.questiontoShow.duration];
+        
+        if(self.questiontoShow.arrayofWrrongAnswers.count == 0 && self.questiontoShow.answertime != nil)
+            self.correctWrrongImage.image = [ UIImage imageNamed:@"icon_correct.png"];
+        else
+            self.correctWrrongImage.image = [ UIImage imageNamed:@"icon_incorrect.png"];
         
         if(self.quizeType == TexttoFlag)
         {
             self.quizeQuestionImage.hidden = NO;
             self.quizeQuestionImage.image = [UIImage imageNamed:[AssetFilesUtils CountryNametoFileName:self.questiontoShow.question]];
-            self.quizeQuestionImage.alpha = 0.3;
+            self.quizeQuestionImage.alpha = 0.15;
+            self.quizeQuestionImage.layer.borderColor = [ UIColor lightGrayColor].CGColor;
             self.quizeQuestionTextHelperLable.hidden = YES;
             self.quizeQuestionTextLabel.hidden = NO;
             self.quizeQuestionTextLabel.text = self.questiontoShow.question;
@@ -53,29 +59,39 @@
         int x = 1;
         for(NSString *option in self.questiontoShow.arrayofOptions)
         {
+            UIColor *forthisButton = [self getColorForButton:option];
             switch (x) {
                 case 1:
-                   // [self.quizeQuestionOption1Button setTitle:option forState:UIControlStateNormal];
-                    [self prePareButton:self.quizeQuestionOption1Button inOption:option];
-                    [self.quizeQuestionOption1Button setBackgroundColor:[self getColorForButton:option]];
+                    // [self.quizeQuestionOption1Button setTitle:option forState:UIControlStateNormal];
+                    [self prePareButtonWithImage:self.quizeQuestionOption1Button inOption:option];
+                    [self.quizeQuestionOption1Button setBackgroundColor:forthisButton];
+
+                    self.quizeQuestionOption1Button.layer.borderColor = forthisButton.CGColor;
+                    
                     x++;
                     break;
                 case 2:
                     //[self.quizeQuestionOption2Button setTitle:option forState:UIControlStateNormal];
-                    [self prePareButton:self.quizeQuestionOption2Button inOption:option];
+                    [self prePareButtonWithImage:self.quizeQuestionOption2Button inOption:option];
                     [self.quizeQuestionOption2Button setBackgroundColor:[self getColorForButton:option]];
+
+                    self.quizeQuestionOption2Button.layer.borderColor = forthisButton.CGColor;
                     x++;
                     break;
                 case 3:
                     //[self.quizeQuestionOption3Button setTitle:option forState:UIControlStateNormal];
-                    [self prePareButton:self.quizeQuestionOption3Button inOption:option];
+                    [self prePareButtonWithImage:self.quizeQuestionOption3Button inOption:option];
                     [self.quizeQuestionOption3Button setBackgroundColor:[self getColorForButton:option]];
+ 
+                    self.quizeQuestionOption3Button.layer.borderColor = forthisButton.CGColor;
                     x++;
                     break;
                 case 4:
                     //[self.quizeQuestionOption4Button setTitle:option forState:UIControlStateNormal];
-                    [self prePareButton:self.quizeQuestionOption4Button inOption:option];
+                    [self prePareButtonWithImage:self.quizeQuestionOption4Button inOption:option];
                     [self.quizeQuestionOption4Button setBackgroundColor:[self getColorForButton:option]];
+
+                    self.quizeQuestionOption4Button.layer.borderColor = forthisButton.CGColor;
                     x++;
                     break;
                 default:
@@ -102,7 +118,7 @@
     
 }
 
--(void)prePareButton:(UIButton*)button inOption:(NSString*)option
+-(void)prePareButtonWithImage:(UIButton*)button inOption:(NSString*)option
 {
     if(self.quizeType == FlagtoText)
     {
@@ -113,6 +129,16 @@
         NSString *imgName = [AssetFilesUtils CountryNametoFileName:option];
         NSLog(@"Image for this country %@",imgName);
         [button setImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
+        if(!([option isEqualToString:self.questiontoShow.question] && self.questiontoShow.answertime !=nil))
+        {
+            button.alpha = 0.2;
+            button.layer.borderWidth = 3.0;
+        }
+        else
+        {
+            button.layer.borderWidth = 2.0;
+
+        }
     }
     
     

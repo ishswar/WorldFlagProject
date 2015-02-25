@@ -10,11 +10,20 @@
 #import "quizeObject.h"
 #import "quizeQuestion.h"
 
+@protocol quizeQuestionDetailsPageViewdelegate <NSObject>
 
+@optional
+-(void)updateCurrentPageIndex:(NSInteger)index;
+
+@end
 
 @interface quizeQuestionDetailsPageView : UIViewController <UIPageViewControllerDataSource,UIPageViewControllerDelegate>
 
+
+@property (weak,nonatomic) id <quizeQuestionDetailsPageViewdelegate> delegate;
+
 @property (strong,nonatomic) quizeObject *quize;
+@property (nonatomic) int questontoShowFirst;
 
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 

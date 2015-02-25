@@ -23,7 +23,7 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
 
 
 #define GAME_OVER_AT 0
-#define GAME_TIME ((int)5)
+#define GAME_TIME ((int)25)
 #define GAME_TIME_BUMP ((int)3)
 #define BUTTON_COLOR lightGrayColor
 #define BUTTON_BORDER_COLOR blackColor
@@ -292,6 +292,24 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
     [self performSegueWithIdentifier:@"goGameHome" sender:self];//IndexPath as sender
 }
 
+- (IBAction)reStartQuize:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"reStartGame" sender:self];
+}
+
+- (IBAction)showDetails:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"showQuizeResultInDetail" sender:self];
+}
+
+- (IBAction)goBackHome:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"goGameHome" sender:self];
+}
+
+- (IBAction)goToStudy:(UIButton *)sender {
+    
+    //goStudy
+    [self performSegueWithIdentifier:@"goStudy" sender:self];
+}
+
 // ======= Game Controlles
 
 -(void)initalizeQuizeObject
@@ -308,7 +326,7 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
     NSLog(@"Quize type is %d",thisQuize.type);
     
     thisQuize.quizediscription = @"World Flag games";
-    thisQuize.startedOn = [ NSDate date];
+    
 }
 
 #pragma mark [Game Control]
@@ -375,13 +393,20 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
     
     if(counterValue <= GAME_OVER_AT){ // We reached 0
         NSLog(@"Gavem over counterValue is %ld & lable value is %@",(long)counterValue,self.timeLeft.text);
+        
+
+        
         [self killTimer:gamesTimer];
         
         if(currentQuestion.question){
         [quizeQuestions addObject:currentQuestion];
+        NSTimeInterval distanceBetweenDates = [[NSDate date] timeIntervalSinceDate:currentQuestion.startTime];
+        currentQuestion.duration = distanceBetweenDates;
         currentQuestion.arrayofWrrongAnswers = wrrongAnswers;
+            
         }
         
+
         // Record things for this Quize / Game
         thisQuize.stopedOn = [NSDate date];
         thisQuize.quizeDuration = [thisQuize.stopedOn timeIntervalSinceDate:thisQuize.startedOn];
@@ -412,6 +437,9 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
 #pragma mark [ Game moves ]
 -(void)doNextMove
 {
+    if(thisQuize.startedOn == nil)
+    thisQuize.startedOn = [ NSDate date];
+    
     if(counterValue >= 0){
         
         
@@ -690,4 +718,6 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
     return topController;
 }
 
+- (IBAction)ResultLableButton:(id)sender {
+}
 @end

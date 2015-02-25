@@ -76,8 +76,9 @@
     // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     self.pageViewController.dataSource = self;
+    self.pageViewController.delegate = self;
     
-    quizeQuestionDetailsPageViewBottomViewController *startingViewController = [self viewControllerAtIndex:0];
+    quizeQuestionDetailsPageViewBottomViewController *startingViewController = [self viewControllerAtIndex:self.questontoShowFirst];
     NSArray *viewControllers = @[startingViewController];
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
@@ -176,7 +177,22 @@
 
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
 {
-    return 0;
+    return [@(self.questontoShowFirst) integerValue];
+}
+
+// Keep track of currecnt page index - so we can update when we go back to list ivew from page view
+- (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed
+{
+    if(completed)
+    {
+         UIViewController *currentView = [pageViewController.viewControllers objectAtIndex:0];
+         NSUInteger index = ((quizeQuestionDetailsPageViewBottomViewController*) currentView).pageIndex;
+        [self.delegate updateCurrentPageIndex:index];
+
+    }
+    
+    
+    
 }
 
 - (IBAction)goBack:(UIButton *)sender {

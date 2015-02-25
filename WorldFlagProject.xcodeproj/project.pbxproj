@@ -242,6 +242,16 @@
 		9B37A7E01A8DDD1E00CFE9BA /* WorldFlagProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B37A7DF1A8DDD1E00CFE9BA /* WorldFlagProjectTests.m */; };
 		9B37A9B01A8E369600CFE9BA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B37A9AF1A8E369600CFE9BA /* DetailViewController.m */; };
 		9B37A9B21A8E37CB00CFE9BA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B37A9B11A8E37CB00CFE9BA /* MapKit.framework */; };
+		9B4C37A81A9C46C40012C9FE /* icon_incorrect.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C37A61A9C46C40012C9FE /* icon_incorrect.png */; };
+		9B4C37A91A9C46C40012C9FE /* icon_correct.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C37A71A9C46C40012C9FE /* icon_correct.png */; };
+		9B4C37AB1A9C55CA0012C9FE /* icon_restart.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C37AA1A9C55CA0012C9FE /* icon_restart.png */; };
+		9B4C37AD1A9C56740012C9FE /* icon_Stopwatch-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C37AC1A9C56740012C9FE /* icon_Stopwatch-50.png */; };
+		9B4C37AF1A9C57230012C9FE /* icon_Home-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C37AE1A9C57230012C9FE /* icon_Home-50.png */; };
+		9B4C37B11A9C57F10012C9FE /* icon_Survey-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C37B01A9C57F10012C9FE /* icon_Survey-50.png */; };
+		9B4C37B51A9C590C0012C9FE /* icon_Reading-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C37B41A9C590C0012C9FE /* icon_Reading-50.png */; };
+		9B4C37B71A9CDFE30012C9FE /* icon_Repeat-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C37B61A9CDFE30012C9FE /* icon_Repeat-50.png */; };
+		9B4C37BA1A9CE7CD0012C9FE /* icon_Details-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C37B81A9CE7CD0012C9FE /* icon_Details-50.png */; };
+		9B4C37BB1A9CE7CD0012C9FE /* icon_Template-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C37B91A9CE7CD0012C9FE /* icon_Template-50.png */; };
 		9B62E1EE1A99C2FD00452294 /* QuizeQuestionsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B62E1ED1A99C2FD00452294 /* QuizeQuestionsDetailViewController.m */; };
 		9B84ACA11A92914100C477D0 /* AssetFilesUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B84ACA01A92914100C477D0 /* AssetFilesUtils.m */; };
 		9B84AE991A9304B300C477D0 /* CommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B84AE981A9304B300C477D0 /* CommonUtils.m */; };
@@ -508,6 +518,16 @@
 		9B37A9AE1A8E369600CFE9BA /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		9B37A9AF1A8E369600CFE9BA /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		9B37A9B11A8E37CB00CFE9BA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		9B4C37A61A9C46C40012C9FE /* icon_incorrect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_incorrect.png; sourceTree = "<group>"; };
+		9B4C37A71A9C46C40012C9FE /* icon_correct.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_correct.png; sourceTree = "<group>"; };
+		9B4C37AA1A9C55CA0012C9FE /* icon_restart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_restart.png; sourceTree = "<group>"; };
+		9B4C37AC1A9C56740012C9FE /* icon_Stopwatch-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_Stopwatch-50.png"; sourceTree = "<group>"; };
+		9B4C37AE1A9C57230012C9FE /* icon_Home-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_Home-50.png"; sourceTree = "<group>"; };
+		9B4C37B01A9C57F10012C9FE /* icon_Survey-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_Survey-50.png"; sourceTree = "<group>"; };
+		9B4C37B41A9C590C0012C9FE /* icon_Reading-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_Reading-50.png"; sourceTree = "<group>"; };
+		9B4C37B61A9CDFE30012C9FE /* icon_Repeat-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_Repeat-50.png"; sourceTree = "<group>"; };
+		9B4C37B81A9CE7CD0012C9FE /* icon_Details-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_Details-50.png"; sourceTree = "<group>"; };
+		9B4C37B91A9CE7CD0012C9FE /* icon_Template-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_Template-50.png"; sourceTree = "<group>"; };
 		9B62E1EC1A99C2FD00452294 /* QuizeQuestionsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizeQuestionsDetailViewController.h; sourceTree = "<group>"; };
 		9B62E1ED1A99C2FD00452294 /* QuizeQuestionsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizeQuestionsDetailViewController.m; sourceTree = "<group>"; };
 		9B84AC9F1A92914100C477D0 /* AssetFilesUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetFilesUtils.h; sourceTree = "<group>"; };
@@ -593,6 +613,16 @@
 		9B37A7C01A8DDD1E00CFE9BA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9B4C37B81A9CE7CD0012C9FE /* icon_Details-50.png */,
+				9B4C37B91A9CE7CD0012C9FE /* icon_Template-50.png */,
+				9B4C37B61A9CDFE30012C9FE /* icon_Repeat-50.png */,
+				9B4C37B41A9C590C0012C9FE /* icon_Reading-50.png */,
+				9B4C37B01A9C57F10012C9FE /* icon_Survey-50.png */,
+				9B4C37AE1A9C57230012C9FE /* icon_Home-50.png */,
+				9B4C37AC1A9C56740012C9FE /* icon_Stopwatch-50.png */,
+				9B4C37AA1A9C55CA0012C9FE /* icon_restart.png */,
+				9B4C37A61A9C46C40012C9FE /* icon_incorrect.png */,
+				9B4C37A71A9C46C40012C9FE /* icon_correct.png */,
 				9B37A7E91A8DDF3B00CFE9BA /* flags_style4_large */,
 				9B37A7C11A8DDD1E00CFE9BA /* Info.plist */,
 				9B37A7C21A8DDD1E00CFE9BA /* main.m */,
@@ -972,6 +1002,7 @@
 				9B1B4C4F1A984587000F9B4C /* Taiwan.png in Resources */,
 				9B1B4C701A984587000F9B4C /* Republic_of_the_Congo.png in Resources */,
 				9B1B4C431A984587000F9B4C /* Turks_and_Caicos_Islands.png in Resources */,
+				9B4C37A81A9C46C40012C9FE /* icon_incorrect.png in Resources */,
 				9B1B4CCC1A984587000F9B4C /* France.png in Resources */,
 				9B1B4C721A984587000F9B4C /* Puerto_Rico.png in Resources */,
 				9B1B4C4A1A984587000F9B4C /* Timor-Leste.png in Resources */,
@@ -989,6 +1020,7 @@
 				9B1B4CA61A984587000F9B4C /* Lebanon.png in Resources */,
 				9B1B4CA71A984587000F9B4C /* Latvia.png in Resources */,
 				9B1B4CF01A984587000F9B4C /* Burundi.png in Resources */,
+				9B4C37AD1A9C56740012C9FE /* icon_Stopwatch-50.png in Resources */,
 				9B1B4CB21A984587000F9B4C /* Israel.png in Resources */,
 				9B1B4CCB1A984587000F9B4C /* French_Polynesia.png in Resources */,
 				9B1B4CE11A984587000F9B4C /* Côte_d'Ivoire.png in Resources */,
@@ -1023,6 +1055,7 @@
 				9B1B4CBA1A984587000F9B4C /* Hong_Kong.png in Resources */,
 				9B1B4C4C1A984587000F9B4C /* Thailand.png in Resources */,
 				9B1B4CD21A984587000F9B4C /* Estonia.png in Resources */,
+				9B4C37A91A9C46C40012C9FE /* icon_correct.png in Resources */,
 				9B1B4C791A984587000F9B4C /* Papua_New_Guinea.png in Resources */,
 				9B1B4C671A984587000F9B4C /* San_Marino.png in Resources */,
 				9B1B4C351A984587000F9B4C /* Wallis_and_Futuna.png in Resources */,
@@ -1036,6 +1069,7 @@
 				9B1B4C5E1A984587000F9B4C /* Slovenia.png in Resources */,
 				9B1B4CFE1A984587000F9B4C /* Belarus.png in Resources */,
 				9B37A7D41A8DDD1E00CFE9BA /* LaunchScreen.xib in Resources */,
+				9B4C37BA1A9CE7CD0012C9FE /* icon_Details-50.png in Resources */,
 				9B1B4CD51A984587000F9B4C /* El_Salvador.png in Resources */,
 				9B1B4C7B1A984587000F9B4C /* Palau.png in Resources */,
 				9B1B4CC81A984587000F9B4C /* Georgia.png in Resources */,
@@ -1076,7 +1110,9 @@
 				9B1B4CF41A984587000F9B4C /* British_Virgin_Islands.png in Resources */,
 				9B1B4C9A1A984587000F9B4C /* Maldives.png in Resources */,
 				9B1B4CF51A984587000F9B4C /* Brazil.png in Resources */,
+				9B4C37B71A9CDFE30012C9FE /* icon_Repeat-50.png in Resources */,
 				9B1B4C7C1A984587000F9B4C /* Pakistan.png in Resources */,
+				9B4C37BB1A9CE7CD0012C9FE /* icon_Template-50.png in Resources */,
 				9B1B4C471A984587000F9B4C /* Trinidad_and_Tobago.png in Resources */,
 				9B1B4C891A984587000F9B4C /* Nauru.png in Resources */,
 				9B1B4C7E1A984587000F9B4C /* Norway.png in Resources */,
@@ -1093,6 +1129,8 @@
 				9B1B4D061A984587000F9B4C /* Aruba.png in Resources */,
 				9B1B4C561A984587000F9B4C /* Sri_Lanka.png in Resources */,
 				9B1B4D051A984587000F9B4C /* Australia.png in Resources */,
+				9B4C37AB1A9C55CA0012C9FE /* icon_restart.png in Resources */,
+				9B4C37AF1A9C57230012C9FE /* icon_Home-50.png in Resources */,
 				9B1B4C591A984587000F9B4C /* South_Korea.png in Resources */,
 				9B1B4CFD1A984587000F9B4C /* Belgium.png in Resources */,
 				9B1B4CC11A984587000F9B4C /* Guam.png in Resources */,
@@ -1130,6 +1168,7 @@
 				9B1B4CCF1A984587000F9B4C /* Faroe_Islands.png in Resources */,
 				9B1B4CAC1A984587000F9B4C /* Kenya.png in Resources */,
 				9B1B4C711A984587000F9B4C /* Qatar.png in Resources */,
+				9B4C37B51A9C590C0012C9FE /* icon_Reading-50.png in Resources */,
 				9B1B4C5D1A984587000F9B4C /* Soloman_Islands.png in Resources */,
 				9B1B4CD41A984587000F9B4C /* Equatorial_Guinea.png in Resources */,
 				9B1B4C7A1A984587000F9B4C /* Panama.png in Resources */,
@@ -1189,6 +1228,7 @@
 				9B1B4CD61A984587000F9B4C /* Egypt.png in Resources */,
 				9B1B4CD31A984587000F9B4C /* Eritrea.png in Resources */,
 				9B1B4CD81A984587000F9B4C /* Dominican_Republic.png in Resources */,
+				9B4C37B11A9C57F10012C9FE /* icon_Survey-50.png in Resources */,
 				9B1B4C831A984587000F9B4C /* Niger.png in Resources */,
 				9B1B4CE61A984587000F9B4C /* Christmas_Island.png in Resources */,
 			);
