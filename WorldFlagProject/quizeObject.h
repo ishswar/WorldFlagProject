@@ -26,5 +26,6 @@ typedef enum {
 @property (nonatomic) NSTimeInterval quizeDuration;
 @property (strong,nonatomic) NSMutableArray * arrayOfQuestions;
 @property (nonatomic) BOOL hintused;
+@property (nonatomic) BOOL highestscore;
 
 @end

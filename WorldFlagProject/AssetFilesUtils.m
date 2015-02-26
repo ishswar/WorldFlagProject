@@ -34,6 +34,21 @@
     // Remove files from directory that starts with "icon_"
     directoryContents = [directoryContents filteredArrayUsingPredicate:noIconfiles];
     
+    NSLog(@"Directory content %@",directoryContents);
+    
+    //appicon
+    //We don't need file starting with "appicon"
+    NSPredicate *appiconiconffiles = [NSPredicate predicateWithFormat:@"SELF contains 'AppIcon'"];
+    NSPredicate *noappiconIconfiles = [NSCompoundPredicate notPredicateWithSubpredicate:appiconiconffiles];
+    // Remove files from directory that starts with "icon_"
+    directoryContents = [directoryContents filteredArrayUsingPredicate:noappiconIconfiles];
+    
+    //We don't need file starting with "Default"
+    NSPredicate *defaulticonffiles = [NSPredicate predicateWithFormat:@"SELF contains 'Default-'"];
+    NSPredicate *defaultnoIconfiles = [NSCompoundPredicate notPredicateWithSubpredicate:defaulticonffiles];
+    // Remove files from directory that starts with "icon_"
+    directoryContents = [directoryContents filteredArrayUsingPredicate:defaultnoIconfiles];
+    
     // We don't  need file that has word "LaunchImage" in it ..
     NSPredicate *launchImage = [NSPredicate predicateWithFormat:@"SELF contains 'LaunchImage'"];
     NSPredicate *nolaunchImage = [NSCompoundPredicate notPredicateWithSubpredicate:launchImage];

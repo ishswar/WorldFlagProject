@@ -33,5 +33,6 @@
 @property (strong, nonatomic) IBOutlet UITableView *quizeUITableView;
 
 @property (strong, nonatomic) IBOutlet UIToolbar *quizeScoreBottomToolBar;
+@property (strong, nonatomic) IBOutlet UIImageView *highScoreIcon;
 
 @end

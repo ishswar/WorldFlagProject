@@ -10,6 +10,7 @@
 #import "DetailViewController.h"
 #import "AssetFilesUtils.h"
 #import "CommonUtils.h"
+#import "CommonStuffHeader.h"
 
 @interface SecondViewController ()
 
@@ -36,6 +37,16 @@
     
     // Customize the back button for push segue
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    
+
+    NSMutableDictionary *titleBarAttributes = [NSMutableDictionary dictionaryWithDictionary: [[UINavigationBar appearance] titleTextAttributes]];
+    [titleBarAttributes setValue:[UIFont fontWithName:FONT_STYLE size:18] forKey:NSFontAttributeName];
+    [[UINavigationBar appearance] setTitleTextAttributes:titleBarAttributes];
+    
+
+
+
     
     // Setup ouir horizontal scrolling buttons / sizes / guesters
     [self setupGuestersForHorizontalScrolling];
@@ -169,6 +180,7 @@
  // Get the new view controller using [segue destinationViewController].
  // Pass the selected object to the new view controller.
      
+     // Go to Image view ( MAP + Wiki data )
      if([segue.identifier isEqualToString:@"showCountryDetail"])
      {
          if([segue.destinationViewController isKindOfClass:[DetailViewController class]])
@@ -201,7 +213,7 @@
 
 
 
-// ---- START : Horizontal view
+// ---- START : Horizontal view [ We could use Page view here ] 
 
 // UINavigation bar button Togle between Horizontal or UITable View
 
@@ -215,7 +227,7 @@
 
 -(void)doFilmStrip:(NSIndexPath*)index
 {
-    NSLog(@" self.horizontalView.hidden : %@",[@(self.horizontalView.hidden) stringValue]);
+    //NSLog(@" self.horizontalView.hidden : %@",[@(self.horizontalView.hidden) stringValue]);
     if(self.horizontalView.hidden)
     {
         self.tableView.hidden = YES;
@@ -243,7 +255,7 @@
         }
         else
         {
-            NSLog(@"Index is : %ld",(long)index.row);
+            //NSLog(@"Index is : %ld",(long)index.row);
             UITableViewCell *swipedCell  = [self.tableView cellForRowAtIndexPath:index];
             imgname = [AssetFilesUtils CountryNametoFileName:swipedCell.textLabel.text];
             countryName = swipedCell.textLabel.text;

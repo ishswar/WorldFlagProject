@@ -142,7 +142,8 @@
                          }
                          
                          MKCoordinateRegion region = self.mapView.region;
-                         region.center = placemark.region.center;
+                         //region.center = placemark.region.center; -> Depricated
+                         region.center = [(CLCircularRegion *)placemark.region center];
                          region.span.longitudeDelta /= 1.3; // Zoom in
                          region.span.latitudeDelta /= 1.3;
 
@@ -180,7 +181,7 @@
     CLLocationCoordinate2D location =
     [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
     
-    NSLog(@"Location found from Map: %f %f",location.latitude,location.longitude);
+    //NSLog(@"Location found from Map: %f %f",location.latitude,location.longitude);
     
     CLLocation *loc = [[ CLLocation alloc] initWithLatitude:location.latitude longitude:location.longitude];
     [self reverseGeocode:loc];
@@ -192,15 +193,15 @@
 - (void)reverseGeocode:(CLLocation *)location {
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
-        NSLog(@"Finding address");
+        //NSLog(@"Finding address");
         if (error) {
-            NSLog(@"Error %@", error.description);
+          //  NSLog(@"Error %@", error.description);
         } else {
             CLPlacemark *placemark = [placemarks lastObject];
             //NSString* locationadd = [NSString stringWithFormat:@"%@", ABCreateStringWithAddressDictionary(placemark.addressDictionary, NO)];
            MKPlacemark* mkplacemark = [[MKPlacemark alloc] initWithPlacemark:placemark];
             
-            NSLog(@"Country %@",mkplacemark.country);
+           // NSLog(@"Country %@",mkplacemark.country);
             
             self.countryLocation = mkplacemark.country;
             
@@ -300,7 +301,7 @@
     // Un hide the web view .
     self.infoView.hidden = NO;
     self.infoView.alpha = 0.0;
-    [UIView animateWithDuration:.6 delay:0.0 options:UIViewAnimationCurveEaseOut animations:^{
+    [UIView animateWithDuration:.6 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         self.infoView.alpha = 1.0;
     } completion:^(BOOL finished) {
         // set background view as darken
@@ -443,7 +444,7 @@
     int i =0;
     for (NSString* key in parsedObject) {
         
-        NSLog(@"Parsed obj %@",key);
+        //NSLog(@"Parsed obj %@",key);
         NSString* currentvalue = [[NSString alloc] init];
         
         if([key isKindOfClass:[NSString class]])

@@ -21,7 +21,7 @@
 #import "CommonStuffHeader.h"
 #import "AssetFilesUtils.h"
 
-#import "SizableImageCell.h"
+
 
 @interface QuizeQuestionsDetailViewController ()
 
@@ -60,6 +60,12 @@
         
         
         [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
+        
+        if(self.quize.highestscore)
+        {
+            self.highScoreIcon.hidden = NO;
+            self.highScoreIcon.transform = CGAffineTransformMakeRotation((45.0f * M_PI) / 180.0f);
+        }
 
     }else
     {
@@ -199,6 +205,7 @@
     
 }
 
+// Go back to Reslut page ( or page / view came from )
 - (IBAction)goBack:(UIBarButtonItem *)sender {
     
 //    if(!self.quizeUITableView.hidden){
@@ -215,28 +222,33 @@
 
 }
 
+// Delegate method for quizeQuestionDetailsPageViewdelegate ( As page view moves it will call this method so we can update Row selected in UI Table view )
 -(void)updateCurrentPageIndex:(NSInteger)index
 {
-    NSLog(@"Now Selected row is %ld",(long)index);
+    // Select the row
     NSIndexPath *ind = [ NSIndexPath indexPathForItem:index inSection:0];
     [self.quizeUITableView selectRowAtIndexPath:ind animated:NO scrollPosition:UITableViewScrollPositionMiddle];
 
+    // Clear the border of from old selected row
     NSIndexPath *oldind = [ NSIndexPath indexPathForItem:currentQuestion inSection:0];
-
     UITableViewCell *before = [self.quizeUITableView cellForRowAtIndexPath:oldind];
     [before.layer setBorderColor:[UIColor clearColor].CGColor];
     [before.layer setBorderWidth:0.0f];
     
+    // Add the border to newly selected row
     UITableViewCell *now = [self.quizeUITableView cellForRowAtIndexPath:ind];
     [now.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     [now.layer setBorderWidth:2.0f];
     
+    // Update the index so we know where we are in UI Table view .
     currentQuestion = index;
 
 }
 
+// UI Table delegate method - if user selects to Row we drop to Page view mode
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // Same as above remove border from row that is getting deselected
     NSIndexPath *ind = [ NSIndexPath indexPathForItem:currentQuestion inSection:0];
     UITableViewCell *before = [self.quizeUITableView cellForRowAtIndexPath:ind];
     [before.layer setBorderColor:[UIColor clearColor].CGColor];
@@ -244,10 +256,12 @@
     
     currentQuestion = indexPath.row;
     
+    // Add border to cell that is getting selected
     UITableViewCell *now = [self.quizeUITableView cellForRowAtIndexPath:indexPath];
     [now.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     [now.layer setBorderWidth:2.0f];
 
+    // Start showing Page view ( it will start from currenctQuestion  [the one that we selected as part of this method ] index )
     [self showPageView:nil ];
 }
 
@@ -257,30 +271,38 @@
     
     if(!self.quizeUITableView.hidden){
         
+        // Hide the UI Table view
         self.quizeUITableView.hidden = YES;
         
+        // Create UI Page view Starting Page
         quizeQuestionDetailsPageView *viewController =
         [self.storyboard instantiateViewControllerWithIdentifier:@"splitPageView"];
+        // Add instance values
         viewController.quize = self.quize;
         viewController.questontoShowFirst = [@(currentQuestion) intValue];
         viewController.delegate = self;
+        
+        // Hide the bottom Tool Bar so we get more space
         self.quizeScoreBottomToolBar.hidden = YES;
+        
+        //Set the correct frame size for UI Page view
         viewController.view.frame = CGRectMake(self.quizeUITableView.frame.origin.x, self.quizeUITableView.frame.origin.y, self.quizeUITableView.frame.size.width, self.quizeUITableView.frame.size.height+self.quizeScoreBottomToolBar.frame.size.height);
         
         [self addChildViewController:viewController];
-        viewController.view.tag  = 11;
+        viewController.view.tag  = 11; // Set tag so we can pull out for removal latter
         [self.view addSubview:viewController.view];
         [viewController didMoveToParentViewController:self];
         
-        self.navigationBar.topItem.rightBarButtonItem.image = [UIImage imageNamed:@"icon_Details-50.png"];//@"List";
+        self.navigationBar.topItem.rightBarButtonItem.image = [UIImage imageNamed:LIST_VIEW_ICON];//@"List";
 
         
     }
     else
     {
         
-        
+        // Get latest view Controller - if it is one we just added above we remove it
         UIViewController *vc = [self.childViewControllers lastObject];
+        
         
         if([vc.restorationIdentifier isEqualToString:@"splitPageView"])
         {
@@ -288,13 +310,15 @@
             [vc.view removeFromSuperview];
             [vc removeFromParentViewController];
             
-            UIView *v = [self.view viewWithTag:11];
-            [v removeFromSuperview];
+//            UIView *v = [self.view viewWithTag:11];
+//            [v removeFromSuperview];
             
+            // UNHide the Table view
             self.quizeUITableView.hidden = NO;
             self.quizeScoreBottomToolBar.hidden = NO;
             
-            self.navigationBar.topItem.rightBarButtonItem.image = [UIImage imageNamed:@"icon_Template-50.png"];//@"Detail";
+            // Change the button on Nav bar
+            self.navigationBar.topItem.rightBarButtonItem.image = [UIImage imageNamed:DETAIL_VIEW_ICON];//@"Detail";
             
             
         }

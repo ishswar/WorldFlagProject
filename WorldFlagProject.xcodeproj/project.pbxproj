@@ -253,16 +253,20 @@
 		9B4C37BA1A9CE7CD0012C9FE /* icon_Details-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C37B81A9CE7CD0012C9FE /* icon_Details-50.png */; };
 		9B4C37BB1A9CE7CD0012C9FE /* icon_Template-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C37B91A9CE7CD0012C9FE /* icon_Template-50.png */; };
 		9B4C38871A9D70040012C9FE /* icon_incomplete.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C38861A9D70040012C9FE /* icon_incomplete.png */; };
-		9B4C39EF1A9E42150012C9FE /* SizableImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4C39EE1A9E42150012C9FE /* SizableImageCell.m */; };
 		9B4C39F31A9E5ABA0012C9FE /* settingsAndAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4C39F21A9E5ABA0012C9FE /* settingsAndAboutViewController.m */; };
 		9B4C39F51A9E69A20012C9FE /* icon_Settings-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C39F41A9E69A20012C9FE /* icon_Settings-50.png */; };
 		9B4C39F71A9E712B0012C9FE /* icon_Time-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C39F61A9E712B0012C9FE /* icon_Time-50.png */; };
+		9B4C39FD1A9E91BF0012C9FE /* confettiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4C39FC1A9E91BF0012C9FE /* confettiViewController.m */; };
+		9B4C3A001A9E926A0012C9FE /* icon_star-gold.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C39FE1A9E926A0012C9FE /* icon_star-gold.png */; };
+		9B4C3A011A9E926A0012C9FE /* icon_confetti-floral.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C39FF1A9E926A0012C9FE /* icon_confetti-floral.png */; };
+		9B4C3A031A9E9DFE0012C9FE /* icon_Trophy-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C3A021A9E9DFE0012C9FE /* icon_Trophy-50.png */; };
+		9B4C3A051A9EA7520012C9FE /* icon_HighScoresButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B4C3A041A9EA7520012C9FE /* icon_HighScoresButton.png */; };
+		9B4C3A081A9F9DF50012C9FE /* mainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4C3A071A9F9DF50012C9FE /* mainTabBarController.m */; };
 		9B62E1EE1A99C2FD00452294 /* QuizeQuestionsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B62E1ED1A99C2FD00452294 /* QuizeQuestionsDetailViewController.m */; };
 		9B84ACA11A92914100C477D0 /* AssetFilesUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B84ACA01A92914100C477D0 /* AssetFilesUtils.m */; };
 		9B84AE991A9304B300C477D0 /* CommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B84AE981A9304B300C477D0 /* CommonUtils.m */; };
 		9B84AE9C1A93AADB00C477D0 /* GameBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B84AE9B1A93AADB00C477D0 /* GameBoardViewController.m */; };
 		9BA75D441A90F6D500294DBE /* wikiObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA75D431A90F6D500294DBE /* wikiObject.m */; };
-		9BE6814D1A99D40A00EC47EB /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE6814C1A99D40A00EC47EB /* TableViewController.m */; };
 		9BE681501A9AA09600EC47EB /* quizeQuestionDetailsPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE6814F1A9AA09600EC47EB /* quizeQuestionDetailsPageView.m */; };
 		9BE681541A9AA64800EC47EB /* quizeQuestionDetailsPageViewBottomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE681531A9AA64800EC47EB /* quizeQuestionDetailsPageViewBottomViewController.m */; };
 /* End PBXBuildFile section */
@@ -535,12 +539,18 @@
 		9B4C37B91A9CE7CD0012C9FE /* icon_Template-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_Template-50.png"; sourceTree = "<group>"; };
 		9B4C38861A9D70040012C9FE /* icon_incomplete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_incomplete.png; sourceTree = "<group>"; };
 		9B4C39EC1A9E1CE60012C9FE /* CommonStuffHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonStuffHeader.h; sourceTree = "<group>"; };
-		9B4C39ED1A9E42150012C9FE /* SizableImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SizableImageCell.h; sourceTree = "<group>"; };
-		9B4C39EE1A9E42150012C9FE /* SizableImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SizableImageCell.m; sourceTree = "<group>"; };
 		9B4C39F11A9E5ABA0012C9FE /* settingsAndAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingsAndAboutViewController.h; sourceTree = "<group>"; };
 		9B4C39F21A9E5ABA0012C9FE /* settingsAndAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingsAndAboutViewController.m; sourceTree = "<group>"; };
 		9B4C39F41A9E69A20012C9FE /* icon_Settings-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_Settings-50.png"; sourceTree = "<group>"; };
 		9B4C39F61A9E712B0012C9FE /* icon_Time-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_Time-50.png"; sourceTree = "<group>"; };
+		9B4C39FB1A9E91BF0012C9FE /* confettiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = confettiViewController.h; sourceTree = "<group>"; };
+		9B4C39FC1A9E91BF0012C9FE /* confettiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = confettiViewController.m; sourceTree = "<group>"; };
+		9B4C39FE1A9E926A0012C9FE /* icon_star-gold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_star-gold.png"; sourceTree = "<group>"; };
+		9B4C39FF1A9E926A0012C9FE /* icon_confetti-floral.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_confetti-floral.png"; sourceTree = "<group>"; };
+		9B4C3A021A9E9DFE0012C9FE /* icon_Trophy-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_Trophy-50.png"; sourceTree = "<group>"; };
+		9B4C3A041A9EA7520012C9FE /* icon_HighScoresButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_HighScoresButton.png; sourceTree = "<group>"; };
+		9B4C3A061A9F9DF50012C9FE /* mainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainTabBarController.h; sourceTree = "<group>"; };
+		9B4C3A071A9F9DF50012C9FE /* mainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainTabBarController.m; sourceTree = "<group>"; };
 		9B62E1EC1A99C2FD00452294 /* QuizeQuestionsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizeQuestionsDetailViewController.h; sourceTree = "<group>"; };
 		9B62E1ED1A99C2FD00452294 /* QuizeQuestionsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizeQuestionsDetailViewController.m; sourceTree = "<group>"; };
 		9B84AC9F1A92914100C477D0 /* AssetFilesUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetFilesUtils.h; sourceTree = "<group>"; };
@@ -551,8 +561,6 @@
 		9B84AE9B1A93AADB00C477D0 /* GameBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameBoardViewController.m; sourceTree = "<group>"; };
 		9BA75D421A90F6D500294DBE /* wikiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wikiObject.h; sourceTree = "<group>"; };
 		9BA75D431A90F6D500294DBE /* wikiObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wikiObject.m; sourceTree = "<group>"; };
-		9BE6814B1A99D40A00EC47EB /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
-		9BE6814C1A99D40A00EC47EB /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		9BE6814E1A9AA09600EC47EB /* quizeQuestionDetailsPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quizeQuestionDetailsPageView.h; sourceTree = "<group>"; };
 		9BE6814F1A9AA09600EC47EB /* quizeQuestionDetailsPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = quizeQuestionDetailsPageView.m; sourceTree = "<group>"; };
 		9BE681521A9AA64800EC47EB /* quizeQuestionDetailsPageViewBottomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quizeQuestionDetailsPageViewBottomViewController.h; sourceTree = "<group>"; };
@@ -600,6 +608,7 @@
 		9B37A7BF1A8DDD1E00CFE9BA /* WorldFlagProject */ = {
 			isa = PBXGroup;
 			children = (
+				9B4C39F91A9E91560012C9FE /* tpcl */,
 				9B4C39F01A9E5A8C0012C9FE /* SettingsAndAbout */,
 				9B4C38881A9D72C10012C9FE /* quizeBoard */,
 				9B4C38851A9D69210012C9FE /* quizeStudyStuff */,
@@ -612,8 +621,6 @@
 				9B37A7D01A8DDD1E00CFE9BA /* Images.xcassets */,
 				9B37A7D21A8DDD1E00CFE9BA /* LaunchScreen.xib */,
 				9B37A7C01A8DDD1E00CFE9BA /* Supporting Files */,
-				9BE6814B1A99D40A00EC47EB /* TableViewController.h */,
-				9BE6814C1A99D40A00EC47EB /* TableViewController.m */,
 			);
 			path = WorldFlagProject;
 			sourceTree = "<group>";
@@ -915,8 +922,31 @@
 			children = (
 				9B4C39F11A9E5ABA0012C9FE /* settingsAndAboutViewController.h */,
 				9B4C39F21A9E5ABA0012C9FE /* settingsAndAboutViewController.m */,
+				9B4C3A061A9F9DF50012C9FE /* mainTabBarController.h */,
+				9B4C3A071A9F9DF50012C9FE /* mainTabBarController.m */,
 			);
 			name = SettingsAndAbout;
+			sourceTree = "<group>";
+		};
+		9B4C39F91A9E91560012C9FE /* tpcl */ = {
+			isa = PBXGroup;
+			children = (
+				9B4C39FA1A9E91600012C9FE /* confetti */,
+			);
+			name = tpcl;
+			sourceTree = "<group>";
+		};
+		9B4C39FA1A9E91600012C9FE /* confetti */ = {
+			isa = PBXGroup;
+			children = (
+				9B4C3A021A9E9DFE0012C9FE /* icon_Trophy-50.png */,
+				9B4C3A041A9EA7520012C9FE /* icon_HighScoresButton.png */,
+				9B4C39FE1A9E926A0012C9FE /* icon_star-gold.png */,
+				9B4C39FF1A9E926A0012C9FE /* icon_confetti-floral.png */,
+				9B4C39FB1A9E91BF0012C9FE /* confettiViewController.h */,
+				9B4C39FC1A9E91BF0012C9FE /* confettiViewController.m */,
+			);
+			name = confetti;
 			sourceTree = "<group>";
 		};
 		9B84AE961A93049000C477D0 /* Utils */ = {
@@ -953,8 +983,6 @@
 				9BE6814F1A9AA09600EC47EB /* quizeQuestionDetailsPageView.m */,
 				9BE681521A9AA64800EC47EB /* quizeQuestionDetailsPageViewBottomViewController.h */,
 				9BE681531A9AA64800EC47EB /* quizeQuestionDetailsPageViewBottomViewController.m */,
-				9B4C39ED1A9E42150012C9FE /* SizableImageCell.h */,
-				9B4C39EE1A9E42150012C9FE /* SizableImageCell.m */,
 			);
 			name = quizeReslutDetailViewStuff;
 			sourceTree = "<group>";
@@ -1166,6 +1194,7 @@
 				9B1B4C7E1A984587000F9B4C /* Norway.png in Resources */,
 				9B1B4CF81A984587000F9B4C /* Bolivia.png in Resources */,
 				9B1B4CC51A984587000F9B4C /* Gibraltar.png in Resources */,
+				9B4C3A001A9E926A0012C9FE /* icon_star-gold.png in Resources */,
 				9B1B4CA21A984587000F9B4C /* Liechtenstein.png in Resources */,
 				9B1B4C901A984587000F9B4C /* Monaco.png in Resources */,
 				9B1B4C8B1A984587000F9B4C /* Myanmar.png in Resources */,
@@ -1186,6 +1215,7 @@
 				9B1B4D101A984587000F9B4C /* Afghanistan.png in Resources */,
 				9B1B4C9E1A984587000F9B4C /* Macedonia.png in Resources */,
 				9B1B4C9C1A984587000F9B4C /* Malawi.png in Resources */,
+				9B4C3A051A9EA7520012C9FE /* icon_HighScoresButton.png in Resources */,
 				9B1B4C4B1A984587000F9B4C /* Tibet.png in Resources */,
 				9B1B4C5A1A984587000F9B4C /* South_Georgia.png in Resources */,
 				9B1B4CEC1A984587000F9B4C /* Cape_Verde.png in Resources */,
@@ -1225,6 +1255,7 @@
 				9B1B4CDA1A984587000F9B4C /* Djibouti.png in Resources */,
 				9B1B4CEB1A984587000F9B4C /* Cayman_Islands.png in Resources */,
 				9B1B4C3E1A984587000F9B4C /* Ukraine.png in Resources */,
+				9B4C3A031A9E9DFE0012C9FE /* icon_Trophy-50.png in Resources */,
 				9B1B4C961A984587000F9B4C /* Martinique.png in Resources */,
 				9B1B4CE41A984587000F9B4C /* Comoros.png in Resources */,
 				9B1B4C501A984587000F9B4C /* Syria.png in Resources */,
@@ -1277,6 +1308,7 @@
 				9B1B4CD61A984587000F9B4C /* Egypt.png in Resources */,
 				9B1B4CD31A984587000F9B4C /* Eritrea.png in Resources */,
 				9B1B4CD81A984587000F9B4C /* Dominican_Republic.png in Resources */,
+				9B4C3A011A9E926A0012C9FE /* icon_confetti-floral.png in Resources */,
 				9B4C37B11A9C57F10012C9FE /* icon_Survey-50.png in Resources */,
 				9B1B4C831A984587000F9B4C /* Niger.png in Resources */,
 				9B1B4CE61A984587000F9B4C /* Christmas_Island.png in Resources */,
@@ -1318,17 +1350,17 @@
 				9B84AE991A9304B300C477D0 /* CommonUtils.m in Sources */,
 				9B37A7C91A8DDD1E00CFE9BA /* FirstViewController.m in Sources */,
 				9B37A7C31A8DDD1E00CFE9BA /* main.m in Sources */,
+				9B4C3A081A9F9DF50012C9FE /* mainTabBarController.m in Sources */,
 				9B1B472F1A97FD8C000F9B4C /* quizeObject.m in Sources */,
 				9B37A9B01A8E369600CFE9BA /* DetailViewController.m in Sources */,
-				9BE6814D1A99D40A00EC47EB /* TableViewController.m in Sources */,
 				9B1B472C1A97FC7B000F9B4C /* quizeQuestion.m in Sources */,
 				9B84ACA11A92914100C477D0 /* AssetFilesUtils.m in Sources */,
-				9B4C39EF1A9E42150012C9FE /* SizableImageCell.m in Sources */,
 				9BE681541A9AA64800EC47EB /* quizeQuestionDetailsPageViewBottomViewController.m in Sources */,
 				9BA75D441A90F6D500294DBE /* wikiObject.m in Sources */,
 				9B62E1EE1A99C2FD00452294 /* QuizeQuestionsDetailViewController.m in Sources */,
 				9B84AE9C1A93AADB00C477D0 /* GameBoardViewController.m in Sources */,
 				9BE681501A9AA09600EC47EB /* quizeQuestionDetailsPageView.m in Sources */,
+				9B4C39FD1A9E91BF0012C9FE /* confettiViewController.m in Sources */,
 				9B4C39F31A9E5ABA0012C9FE /* settingsAndAboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

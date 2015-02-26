@@ -7,6 +7,7 @@
 //
 
 #import "CommonUtils.h"
+#import "CommonStuffHeader.h"
 
 @implementation CommonUtils
 
@@ -33,7 +34,8 @@
 {
     NSUserDefaults *userdef = [NSUserDefaults standardUserDefaults];
     
-    [userdef setInteger:intimer forKey:@"timer"];
+    [userdef setInteger:intimer forKey:GAME_TIMER_NAME_FOR_NSUSERDEFAULT];
+    [userdef synchronize];
     
     
 }

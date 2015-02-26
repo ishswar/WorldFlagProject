@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "quizeQuestion.h"
 #import "quizeObject.h"
+#import "confettiViewController.h"
 
 @interface GameBoardViewController : UIViewController
 
@@ -59,6 +60,14 @@
 @property (strong, nonatomic) IBOutlet UIImageView *questionImage;
 
 @property (strong,nonatomic) quizeObject * quize;
+
+//
+
+@property (strong,nonatomic) confettiViewController * confetti;
+@property (nonatomic) BOOL newHighScore;
+
+
+@property (strong, nonatomic) UITabBarController *tabController;
 
 
 @end

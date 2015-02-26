@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface settingsAndAboutViewController : UIViewController
+@interface settingsAndAboutViewController : UIViewController <UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UISlider *quizeDuration;
 
@@ -16,5 +16,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *showQuizeTime;
 
 @property (strong, nonatomic) IBOutlet UITextView *aboutTextLable;
+
+- (IBAction)resetThisLevle:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UILabel *highScoreforThisLevel;
 
 @end

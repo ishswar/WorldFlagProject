@@ -19,8 +19,9 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
 #import "GameBoardViewController.h"
 #import "AssetFilesUtils.h"
 #import "CommonUtils.h"
-
+#import "CommonStuffHeader.h"
 #import "QuizeQuestionsDetailViewController.h"
+#import "mainTabBarController.h"
 
 
 #define GAME_OVER_AT 0
@@ -80,6 +81,13 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
     
     NSTimer *reslutShowingTimer;
     
+    NSInteger hightScore;
+    NSMutableDictionary *highScoreDic;
+    
+    NSUserDefaults *userdef;
+    
+    NSInteger gametimeFromNSDef;
+    
     
     
 
@@ -116,11 +124,31 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
      name:UIApplicationDidBecomeActiveNotification
      object:nil];
     
+     userdef = [ NSUserDefaults standardUserDefaults];
+    
+
+        
+    
+    
     // This class is ahred by two View - so if score is there then we need to take care of Score screen
     
     // if game status id defined != nil that means we need to show Reslut else we start game
     if(self.gameStatus)
     {
+        if(self.newHighScore){
+        self.confetti = [[confettiViewController alloc] init];
+        
+        //Create emitterLayer & configure its various properties
+        [self.confetti setupEmitter:self];
+        
+        //Create emitter cells for gold stars and confetti, set their properties and add them to the emitter
+        [self.confetti setupEmitterCells];
+        
+        CGPoint startpoint = CGPointMake(75, 40);
+        [self.confetti touchesEnded:startpoint];
+        
+        }
+        
         self.QuizeOverTimesUpView.hidden = NO;
         // self.ResultLable.text = [@(self.score) stringValue];
         [self showReslutWithCounter];
@@ -144,16 +172,29 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
             // Start the Game ( mainly the counter )
             
             
-            NSUserDefaults *userdef = [NSUserDefaults standardUserDefaults];
+            //NSUserDefaults *userdef = [NSUserDefaults standardUserDefaults];
             
-            NSInteger timer = [userdef integerForKey:@"timer"];
-            NSLog(@"timer value is %lu",(long)timer);
-            if(timer == 0){
-                timer = GAME_TIME;
-                [CommonUtils setGameTimeInUserDef:timer];
+            gametimeFromNSDef = [userdef integerForKey:GAME_TIMER_NAME_FOR_NSUSERDEFAULT];
+            //NSLog(@"timer value is %lu",(long)gametimeFromNSDef);
+            if(gametimeFromNSDef == 0){
+                gametimeFromNSDef = GAME_TIME;
+                [CommonUtils setGameTimeInUserDef:gametimeFromNSDef];
             }
             
-            [self startGame:[NSNumber numberWithInteger:timer] startScore:[NSNumber numberWithInt:0]];
+            [self startGame:[NSNumber numberWithInteger:gametimeFromNSDef] startScore:[NSNumber numberWithInt:0]];
+            
+            highScoreDic = [[userdef dictionaryForKey:GAME_ALL_TIME_HIGHT_SCORE_DICTIONARY] mutableCopy];
+            
+            
+            if(highScoreDic != nil)
+            {
+                 hightScore = [[highScoreDic objectForKey:[@(gametimeFromNSDef) stringValue]] integerValue];
+                
+                
+            } else
+            {
+                [userdef setObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:0],[@(gametimeFromNSDef) stringValue], nil] forKey:GAME_ALL_TIME_HIGHT_SCORE_DICTIONARY];
+            }
             
             self.score = 0; // initalize game with this score - e.g 0 ?
             self.currentScore.text = [@(self.score) stringValue];
@@ -204,6 +245,7 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
     currentQestionAlreadyAnsered= nil;
     gamesTimer = nil;
     thisQuize = nil;
+    self.confetti = nil;
 }
 
 -(void)showHintLable:(NSObject*)obj
@@ -237,11 +279,11 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
 
 -(void)updateReslutLable:(NSTimer*)intimer
 {
-    NSLog(@"Flags %@",self.CorrectImages);
+    //NSLog(@"Flags %@",self.CorrectImages);
     if(currentCounterValueForAnimation < self.score)
     {
         NSString *imageName = [AssetFilesUtils CountryNametoFileName:self.CorrectImages[currentCounterValueForAnimation]];
-        NSLog(@"File looking for %@",imageName);
+        //NSLog(@"File looking for %@",imageName);
         self.flagReslutsImageView.image = [UIImage imageNamed:imageName];
         currentCounterValueForAnimation++; // increment uptill we reach score
         self.ResultLable.text = [@(currentCounterValueForAnimation) stringValue];
@@ -279,6 +321,7 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
         gb.gameStatus = @"Over";
         gb.quize = thisQuize;
         gb.flagToText = self.flagToText;
+        gb.newHighScore = self.newHighScore;
         
        NSLog(@"this Quize array %@",thisQuize);
     }
@@ -293,6 +336,12 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
     {
         GameBoardViewController *gbvc = segue.destinationViewController;
         gbvc.flagToText = self.flagToText;
+    }
+    
+    if([segue.identifier isEqualToString:@"goStudy"])
+    {
+        mainTabBarController *gbvc = segue.destinationViewController;
+        gbvc.selected_index = 1;
     }
 }
 
@@ -327,6 +376,7 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
 - (IBAction)goToStudy:(UIButton *)sender {
     
     //goStudy
+
     [self performSegueWithIdentifier:@"goStudy" sender:self];
 }
 
@@ -412,7 +462,7 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
         [self killTimer:gamesTimer];
     
     if(counterValue <= GAME_OVER_AT){ // We reached 0
-        NSLog(@"Gavem over counterValue is %ld & lable value is %@",(long)counterValue,self.timeLeft.text);
+        //NSLog(@"Gavem over counterValue is %ld & lable value is %@",(long)counterValue,self.timeLeft.text);
         
 
         
@@ -432,6 +482,26 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
         thisQuize.quizeDuration = [thisQuize.stopedOn timeIntervalSinceDate:thisQuize.startedOn];
         thisQuize.arrayOfQuestions = quizeQuestions;
         thisQuize.score = [NSNumber numberWithInteger:[self.currentScore.text integerValue] ];
+        
+        if(thisQuize.score.integerValue > hightScore)
+        {
+           // [userdef setObject:<#(id)#> forKey:<#(NSString *)#>:thisQuize.score.integerValue forKey:GAME_ALL_TIME_HIGHT_SCORE];
+           // highScoreDic = [userdef dictionaryForKey:GAME_ALL_TIME_HIGHT_SCORE_DICTIONARY];
+
+            
+            if(highScoreDic != nil)
+                highScoreDic = [[userdef dictionaryForKey:GAME_ALL_TIME_HIGHT_SCORE_DICTIONARY] mutableCopy];
+
+            hightScore = thisQuize.score.integerValue;
+            [highScoreDic setValue:[NSNumber numberWithInteger:hightScore] forKey:[@(gametimeFromNSDef) stringValue]];
+           
+            [userdef setObject:highScoreDic forKey:GAME_ALL_TIME_HIGHT_SCORE_DICTIONARY];
+            [userdef synchronize];
+            self.newHighScore = YES;
+            thisQuize.highestscore = YES;
+            
+        }
+        
         
         // Move out of this Game/Quize screen
         [self performSegueWithIdentifier:@"showResults" sender:nil];//This will chagne the screen for user so they can't keep laying
@@ -488,6 +558,8 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
             
             self.textQuestionLabel.hidden = YES;
             self.questionImage.image = [UIImage imageNamed:directoryContents[[temImgId[[temImg_Id[0] intValue]] intValue] ]];
+            
+            //self.questionImage.transform = CGAffineTransformMakeRotation((30.0f * M_PI) / 180.0f);
             
             [self.anser1Button1 setTitle:option1 forState:UIControlStateNormal];
             
@@ -704,13 +776,13 @@ THIS IS A COMMON CLASS BETWEEN TWO VIEW IN STORY BOARD
         NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
         NSNumber *num = [def objectForKey:@"currecntTimerValue"];
         // counterValue = num.intValue;
-        NSLog(@"counterValue %@",num);
+       // NSLog(@"counterValue %@",num);
         
         NSNumber *numanswers = [def objectForKey:@"correctAnswers"];
         //  correctAnswers = numanswers.intValue;
-        NSLog(@"correctAnswers %@",numanswers);
+        //NSLog(@"correctAnswers %@",numanswers);
         
-        NSLog(@"Correct images %@",self.CorrectImages);
+       // NSLog(@"Correct images %@",self.CorrectImages);
         
         
         [self startGame:num startScore:numanswers];
